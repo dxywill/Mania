@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html> 
+<head>
+	<title>
+		{%  block title %}
+		default title
+		{%  endblock %} 
+	</title> 
+<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
+<script type="text/javascript" src="{% static "js/main.js" %}"></script>
+</head>
+<body> 
+	{% block content %}
+	default content
+	{% endblock %}
+
+	{% include 'collection/bottom.html' %}
+</body>
+</html>
