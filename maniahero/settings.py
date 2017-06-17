@@ -127,6 +127,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "public/static")
 ]
 
+# Settings for django-registration-redux
+
 INTERNAL_IPS = ('127.0.0.1',)
 SIMPLE_BACKEND_REDIRECT_URL = '/collection/'
 
