@@ -135,3 +135,8 @@ SIMPLE_BACKEND_REDIRECT_URL = '/collection/'
 LOGIN_REDIRECT_URL = '/collection/'
 
 SITE_ID = 2
+
+# For image upload
+
+MEDIA_ROOT = 'public/media'
+MEDIA_URL = '/media/'
