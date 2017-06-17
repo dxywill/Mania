@@ -20,6 +20,7 @@ from django.contrib import admin
 urlpatterns = [
 	url(r'^collection/', include('collection.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
 ]
 
 if settings.DEBUG:

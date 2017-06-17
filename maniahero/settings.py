@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'collection.apps.CollectionConfig',
     'django.contrib.admin',
+    'django.contrib.sites',
+    'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -126,3 +128,8 @@ STATICFILES_DIRS = [
 ]
 
 INTERNAL_IPS = ('127.0.0.1',)
+SIMPLE_BACKEND_REDIRECT_URL = '/collection/'
+
+LOGIN_REDIRECT_URL = '/collection/'
+
+SITE_ID = 2
