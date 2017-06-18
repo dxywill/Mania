@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+<img id="eyeImage"  height="600" width="800" src="{% static "img/smu.jpg" %}" />
+</div>
+
+
+
+<form action="{% url "complete" %}" method="post" enctype="multipart/form-data"> 
+    {% csrf_token %}
+<input type="hidden" id="x_value" name="x_offset" value="value">
+<input type="hidden" id="y_value" name="y_offset" value="value">
+<input type="hidden" id="width_value" name="width" value="value">
+<input type="hidden" id="height_value" name="height" value="value">
+
+<input type="submit" value = "Submit">
+</form>
+{% endblock %}

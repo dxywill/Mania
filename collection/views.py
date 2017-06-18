@@ -13,8 +13,25 @@ def index(request):
 			eye_image.participant = request.user
 			eye_image.image_id = 2
 			eye_image.save()
-			return HttpResponse('image upload success')
+			context_data = {'image': eye_image }
+			return render(request, 'collection/upload.html', context_data)
+			
 	return render(request, 'collection/home.html')
 
 def upload(request):
-	return render(request, 'collection/upload.html')
+	return render(request, 'collection/test.html')
+
+def complete(request):
+	x = request.POST['x_offset']
+	y = request.POST['y_offset']
+	width = request.POST['width']
+	height = request.POST['height']
+
+	context_data = {
+		"x" : x,
+		"y" : y,
+		"width" : width,
+		"height": height
+	}
+	print(context_data)
+	return render(request, 'collection/complete.html', context_data)
