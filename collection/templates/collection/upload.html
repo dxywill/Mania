@@ -1,31 +1,88 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<img id="eyeImage" src="{{ image.eye_image.url }}" />
 
-<button id="cropEndBtn">Do it</button>
+<div class="container"> 
+    <div class="row image-holder">
+        <div class="col-md-4 image-crop">
+             <img id="eyeImage" src="" />
+        </div> 
+        <div class="col-md-1">
+            
+        </div> 
+        <div class="col-md-7">
+            <h3>Please select the file:</h3>
+
+            <form action="{% url "complete" %}" method="post" enctype="multipart/form-data"> 
+                {% csrf_token %}
+
+                <input type="file" name="file0" id="file0" multiple="multiple" /><br>
+
+                <input type="hidden" id="x_value" name="x_offset" value="value">
+                <input type="hidden" id="y_value" name="y_offset" value="value">
+                <input type="hidden" id="width_value" name="width" value="value">
+                <input type="hidden" id="height_value" name="height" value="value">
+
+                <input class="btn btn-lg btn-primary" type="submit" value = "Crop & Upload">
+            </form>
+        </div> 
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+           
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+</div>
+
+<script>    
+
+$("#file0").change(function(){
+    var objUrl = getObjectURL(this.files[0]) ;
+    console.log("objUrl = "+objUrl) ;
+    if (objUrl) {
+        console.log('hello');
+        $("#eyeImage").attr("src", objUrl) ;
+        var image = document.querySelector('#eyeImage');
+        var cropper = new Cropper(image, {
+        movable: false,
+        zoomable: false,
+        rotatable: false,
+        scalable: false,
+        autoCropArea:0.5,
+        minCropBoxWidth:100,
+        minCropBoxHeight:100,
+        crop: function (e) {
+            var cropper = this.cropper;
+            var imageData = cropper.getData();
+            //console.log(imageData);
+            document.getElementById("x_value").value = imageData.x;
+            document.getElementById("y_value").value = imageData.y;
+            document.getElementById("width_value").value = imageData.width;
+            document.getElementById("height_value").value = imageData.height;
+                }
+        });
+        console.log("end");
+
+    }
+}) ;
+
+function getObjectURL(file) {
+    var url = null ; 
+    if (window.createObjectURL!=undefined) { // basic
+        url = window.createObjectURL(file) ;
+    } else if (window.URL!=undefined) { // mozilla(firefox)
+        url = window.URL.createObjectURL(file) ;
+    } else if (window.webkitURL!=undefined) { // webkit or chrome
+        url = window.webkitURL.createObjectURL(file) ;
+    }
+    return url ;
+}
+</script>
+
 
 {% endblock %}
 
-
-<script> 
-    var $image = $('#eyeImage');
-        /* 初始化配置 */
-        $image.cropper({
-            movable: false,
-            zoomable: false,
-            rotatable: false,
-            scalable: false,
-            autoCropArea:0.5,
-            minCropBoxWidth:100,
-            minCropBoxHeight:100
-    });
-    /* 点击获取图片的裁剪大小 */
-    $('#cropEndBtn').on('click',function(){
-    	console.log("hello");
-        var imageData = $image.cropper('getData');
-        console.log(imageData);
-        /* 结果如下 Object {x: 212.36363636363637, y: 76, width: 338.90909090909093, height: 256.3636363636364} */
-    });
-
-</script>

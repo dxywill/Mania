@@ -22,7 +22,7 @@ def index(request):
 	return render(request, 'collection/home.html')
 
 def upload(request):
-	return render(request, 'collection/test.html')
+	return render(request, 'collection/upload.html')
 
 def complete(request):
 	x = request.POST['x_offset']

@@ -5,3 +5,11 @@
 .gap {
 	margin-top: 60px;
 }
+
+.image-crop {
+	max-height: 600px;
+}
+
+.image-holder {
+	margin-left: -30px;
+}
