@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 
 urlpatterns = [
+    url(r'^$', include('collection.urls')),
 	url(r'^collection/', include('collection.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.simple.urls')),

@@ -1,7 +1,7 @@
-.container {
-  max-width: 640px;
-  max-height: 400px;
+.abstract {
+	font-style: italic;
 }
-img {
-  width: 100%;
+
+.gap {
+	margin-top: 60px;
 }

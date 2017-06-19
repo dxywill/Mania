@@ -132,7 +132,7 @@ STATICFILES_DIRS = [
 INTERNAL_IPS = ('127.0.0.1',)
 SIMPLE_BACKEND_REDIRECT_URL = '/collection/'
 
-LOGIN_REDIRECT_URL = '/collection/'
+LOGIN_REDIRECT_URL = '/collection/upload'
 
 SITE_ID = 2
 

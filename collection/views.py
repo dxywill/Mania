@@ -5,6 +5,9 @@ from collection.forms import ImageUploadForm
 
 # Create your views here.
 
+def landing(request):
+	return render(request, 'collection/landing.html')
+
 def index(request):
 	if request.method == 'POST':
 		form = ImageUploadForm(request.POST, request.FILES)
@@ -35,3 +38,7 @@ def complete(request):
 	}
 	print(context_data)
 	return render(request, 'collection/complete.html', context_data)
+
+
+def faq(request):
+	return render(request, 'collection/faq.html')
