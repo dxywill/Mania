@@ -8,8 +8,17 @@
 
 .image-crop {
 	max-height: 600px;
+	max-width: 400px;
+}
+
+#eyeImage {
+	max-height: 600px;
+	max-width: 400px;
 }
 
 .image-holder {
 	margin-left: -30px;
 }
+/*.footer-wrap {
+	margin-top: 30px;
+}*/
