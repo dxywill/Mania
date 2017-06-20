@@ -45,3 +45,6 @@ def faq(request):
 
 def consent(request):
 	return render(request, 'collection/consent.html')
+
+def survey(request):
+	return render(request, 'collection/survey.html')
