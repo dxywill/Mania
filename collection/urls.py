@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^index/$', views.index, name='index'),
     url(r'^upload/$', views.upload, name='upload'),
     url(r'^complete/$', views.complete, name='complete'),
-    url(r'^faq/$', views.faq, name='faq')
+    url(r'^faq/$', views.faq, name='faq'),
+    url(r'^consent/$', views.consent, name='consent')
 ]

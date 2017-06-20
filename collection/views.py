@@ -42,3 +42,6 @@ def complete(request):
 
 def faq(request):
 	return render(request, 'collection/faq.html')
+
+def consent(request):
+	return render(request, 'collection/consent.html')

@@ -5,9 +5,7 @@
 
         <form class="form-signin"  method="post" action=".">
                 {% csrf_token %}
-
-                <h2 class="form-signin-heading">Sign Up Here</h2>
-
+                	<h3 class="form-signin-heading">Please sign up</h3>
 					<div class="form-group" >
 					 <p class="required"> <label for="id_username">Username:</label>
 					     <input class="form-control"  id="id_username" maxlength="30" name="username" type="text"  placeholder="Enter username"/></p>
@@ -36,10 +34,10 @@
 
 	    			<div class="checkbox">
 				    <label>
-				      <input type="checkbox"> Sign the <a data-toggle="modal" data-target="#myModal" >consent form </a> by clicking the checkbox
+				      <input id="consent-box" type="checkbox"> Sign the <a data-toggle="modal" data-target="#myModal" >consent form </a> by clicking the checkbox
 				    </label>
 				  </div>
-					<button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+				  <button type="submit" id="create" class="btn btn-lg btn-primary btn-block" disabled="true">Sign Up </button>
         </form>
         <p align="center" >Already have an account? <a href="{% url 'auth_login' %}">Sign In </a></p>
         <!-- Modal -->
@@ -48,7 +46,7 @@
 		        <div class="modal-content">
 		            <div class="modal-header">
 		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                <h4 class="modal-title" id="myModalLabel">Consent Form </h4>
+		                <h3 class="modal-title" id="myModalLabel" align="center"> Consent Form </h3>
 		            </div>
 		            <div class="modal-body"> {% include 'collection/form_content.html' %} </div>
 		            <div class="modal-footer">
@@ -58,4 +56,17 @@
 		    </div><!-- /.modal -->
 		</div>
 
+<script> 
+	
+	$("#consent-box").click(function() {
+
+		if ($(this).is(':checked')) {
+			$("#create").removeAttr("disabled");  
+
+		}
+		else {
+			$("#create").attr("disabled","true");  
+		}
+	});
+</script>
 {% endblock %}
