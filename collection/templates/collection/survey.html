@@ -4,15 +4,18 @@
 <!-- 
 <p>	{{ x }} </p> -->
 
-<div class="container">
+<div class="container survey">
 	<div class="row">
 		<div class="col-md-3">
 		</div>
 		<div class="col-md-6">
-			<h3> Please fill in the survey</h3>
+			<h2 align="center" class="survey-title" > EXIT SURVEY</h2>
 			<form  method="post" action=".">
 				{% csrf_token %}
-				<h4> Please select your age range: </h4>
+
+				<h3>Demographic Information </h3>
+				<hr>
+				<h4 style="italic"> Please select your age range: </h4>
 				<label class="radio">
 				  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> Under 18
 				</label>
@@ -58,6 +61,8 @@
 				  <input type="radio" name="optionsRadios1" id="optionsRadios2" value="option2"> I prefer not to say
 				</label>
 
+				<h3 > Mental State Questionnaire </h3>
+				<hr>
 				<h4> Please check the boxes that represent how you felt during the time of the picture. </h4>
 				<label class="checkbox">
 				  <input type="checkbox" name="bb" value=""> I felt upbeat and had a lot of fun. 
@@ -134,9 +139,10 @@
 				<label class="checkbox">
 				  <input type="checkbox" name="dd" value=""> Mood Stabilizer.
 				</label>
-				<label> Other:</label> 
+				<label class="textarea">  Other: </label> 
 				<textarea rows="3" cols="20" name='ta'>
-				</textarea>
+				</textarea> 
+
 
 				<h4> Check the substances you were using at the time of the picture. Please know this
 information will be kept confidential.</h4>
@@ -163,6 +169,8 @@ information will be kept confidential.</h4>
 				  <input type="checkbox" name="ee" value=""> Steroids
 				</label>
 
+				<h3> Other Information </h3>
+				<hr>
 				<h4> Was a flash used in this photo: </h4>
 				<label class="radio">
 				  <input type="radio" name="ff" id="optionsRadios2" value="option2"> Yes

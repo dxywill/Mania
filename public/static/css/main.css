@@ -24,6 +24,32 @@
 	margin-top: 120px;
 }
 
+.survey label {
+	font-weight: normal;
+    margin-left: 20px;
+}
+
+.survey-title {
+
+	margin-bottom: 60px;
+}
+
+.survey hr {
+	border-top: 1px solid #d7d7d7;
+}
+
+.survey .textarea {
+
+}
+
+.survey .btn {
+	margin-top: 60px;
+}
+
+.survey h4 {
+    font-style:italic;
+    font-weight: normal;
+}
 .modal-dialog { 
     position: absolute; 
     top: 0; 
