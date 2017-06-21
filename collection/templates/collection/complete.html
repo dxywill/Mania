@@ -2,6 +2,14 @@
 
 {% block content %} 
 
-<p>	{{ x }} </p>
+<div class="container">
+	<div class="row">
+		<div class="alert alert-success gap">
+		    <p>
+		    	<h5> Thank you for participanting this study. You can go to the <a href="{% url 'landing' %}">HOME PAGE</a> OR <a href="{% url 'upload' %}">UPLOAD ANOTHER PHOTO</a></h5>
+		    </p> 
+		</div>
+  	</div>
+</div>
 
 {% endblock %}

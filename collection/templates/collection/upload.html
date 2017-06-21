@@ -13,7 +13,7 @@
         <div class="col-md-7">
             <h3>Please select the file:</h3>
 
-            <form action="{% url "complete" %}" method="post" enctype="multipart/form-data"> 
+            <form action="{% url "survey" %}" method="post" enctype="multipart/form-data"> 
                 {% csrf_token %}
 
                 <input type="file" name="file0" id="file0" multiple="multiple" /><br>
