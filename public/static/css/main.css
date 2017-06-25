@@ -38,10 +38,6 @@
 	border-top: 1px solid #d7d7d7;
 }
 
-.survey .textarea {
-
-}
-
 .survey .btn {
 	margin-top: 60px;
 }
@@ -57,6 +53,11 @@
     left: 0; 
     right: 0; 
 } 
+
+textarea {
+   resize: none;
+   vertical-align: top;
+}
 
 .modal-content { 
     /*overflow-y: scroll; */ 
