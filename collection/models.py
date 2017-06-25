@@ -19,5 +19,3 @@ class Survey(models.Model):
 	medications = models.CharField(max_length=200)
 	substances = models.IntegerField()
 	flash = models.IntegerField()
-
-
