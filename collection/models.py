@@ -9,6 +9,8 @@ class EyeImage(models.Model):
 	eye_image = models.ImageField(upload_to = 'img/')
 	dateTime = models.DateTimeField(auto_now_add=True)
 	image_name = models.CharField(max_length=200, default='')
+	def __str__(self):
+   		return self.image_name
 
 class Survey(models.Model):
 	image = models.ForeignKey(EyeImage, on_delete=models.CASCADE)
@@ -19,3 +21,6 @@ class Survey(models.Model):
 	medications = models.CharField(max_length=200)
 	substances = models.IntegerField()
 	flash = models.IntegerField()
+
+	def __str__(self):
+		return 'Survey for ' + self.image.image_name
