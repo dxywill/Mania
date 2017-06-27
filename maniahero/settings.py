@@ -130,7 +130,7 @@ STATICFILES_DIRS = [
 # Settings for django-registration-redux
 
 INTERNAL_IPS = ('127.0.0.1',)
-SIMPLE_BACKEND_REDIRECT_URL = '/collection/'
+SIMPLE_BACKEND_REDIRECT_URL = '/collection/profile'
 
 LOGIN_REDIRECT_URL = '/collection/upload'
 

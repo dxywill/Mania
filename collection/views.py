@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from collection.models import EyeImage, Survey
+from collection.models import EyeImage, Survey, Profile
 from collection.forms import ImageUploadForm
 from django.conf import settings
 from PIL import Image
 from django.core import serializers
-
 # Create your views here.
 
 def landing(request):
@@ -25,6 +24,7 @@ def index(request):
 	return render(request, 'collection/home.html')
 
 def upload(request):
+	print(request.user)
 	return render(request, 'collection/upload.html')
 
 def complete(request):
@@ -94,4 +94,17 @@ def survey(request):
 
 	return render(request, 'collection/survey.html')
 
+def profile(request):
+	# #Get profile data
+	if request.method == 'POST':
+		age = int(request.POST.get('agerange'))
+		gender = int(request.POST.get('gender'))
+		diagnosis = int(request.POST.get('diagnosis'))
+		profile = Profile()
+		profile.user = request.user
+		profile.age = age
+		profile.gender = gender
+		profile.diagnosis = diagnosis
+		profile.save()
 
+	return render(request, 'collection/profile.html')

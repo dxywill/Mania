@@ -3,9 +3,9 @@
 
 {% block content %}
 
-        <form class="form-signin"  method="post" action=".">
+        <form id="username" class="form-signin"  method="post" action=".">
                 {% csrf_token %}
-                	<h3 class="form-signin-heading">Please fill in the basic info</h3>
+                	<h3 class="form-signin-heading">PICK A UNIQUE NAME</h3>
 					<div class="form-group" >
 					 <p class="required"> <label for="id_username">Username:</label>
 					     <input class="form-control"  id="id_username" maxlength="30" name="username" type="text"  placeholder="Enter username"/></p>
@@ -32,75 +32,10 @@
 		    			</div>
 	    			{% endif %}
 
-	    			<!-- Profile info -->
-	    			<label for="sel1">Age Range:</label>
-				      <select class="form-control" name="agerange">
-				        <option value="0">Under 18</option>
-				        <option value="1">18-25</option>
-				        <option value="2">26-30</option>
-				        <option value="3">31-35</option>
-				        <option value="4">36-40</option>
-				        <option value="5">41-45</option>
-				        <option value="6">46-50</option>
-				        <option value="7">51-55</option>
-				        <option value="8">56-60</option>
-				        <option value="9">61-65</option>
-				        <option value="10">over 65</option>
-				      </select>
-					 <br>
+	    			<button type="submit" id="create" class="btn btn-lg btn-primary btn-block" >Next Step</button>
 
-					 <label for="sel1">Gender:</label>
-				      <select class="form-control" name="gender">
-				        <option value="0" >Male</option>
-				        <option value="1">Femal</option>
-				        <option value="2">I perfer not to say</option>
-				      </select>
-					 <br>
-
-					 <label for="sel1">Diagnosis:</label>
-				      <select class="form-control" name="diagnosis">
-				        <option value="0">Bipolar one</option>
-				        <option value="1">Bipolar two</option>
-				        <option value="2">Bipolar non specified</option>
-				        <option value="3">Schizoaffective</option>
-				        <option value="4">I don't know</option>
-				      </select>
-					 <br>
-	    			<div class="checkbox">
-				    <label>
-				      <input id="consent-box" type="checkbox"> Sign the <a data-toggle="modal" data-target="#myModal" >CONSENT FORM</a> by clicking the checkbox
-				    </label>
-				  </div>
-				  <button type="submit" id="create" class="btn btn-lg btn-primary btn-block" disabled="true">Sign Up </button>
         </form>
+       
         <p align="center" >Already have a username? <a href="{% url 'auth_login' %}">Sign In </a></p>
-        <!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		    <div class="modal-dialog">
-		        <div class="modal-content">
-		            <div class="modal-header">
-		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                <h3 class="modal-title" id="myModalLabel" align="center"> Consent Form </h3>
-		            </div>
-		            <div class="modal-body"> {% include 'collection/form_content.html' %} </div>
-		            <div class="modal-footer">
-		                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		            </div>
-		        </div><!-- /.modal-content -->
-		    </div><!-- /.modal -->
-		</div>
 
-<script> 
-	
-	$("#consent-box").click(function() {
-
-		if ($(this).is(':checked')) {
-			$("#create").removeAttr("disabled");  
-
-		}
-		else {
-			$("#create").attr("disabled","true");  
-		}
-	});
-</script>
 {% endblock %}
