@@ -4,7 +4,7 @@ from collection.models import EyeImage, Survey, Profile
 from collection.forms import ImageUploadForm
 from django.conf import settings
 from PIL import Image
-from django.core import serializers
+from django.shortcuts import redirect
 # Create your views here.
 
 def landing(request):
@@ -24,7 +24,6 @@ def index(request):
 	return render(request, 'collection/home.html')
 
 def upload(request):
-	print(request.user)
 	return render(request, 'collection/upload.html')
 
 def complete(request):
@@ -106,5 +105,6 @@ def profile(request):
 		profile.gender = gender
 		profile.diagnosis = diagnosis
 		profile.save()
+		return redirect('/collection/upload')
 
 	return render(request, 'collection/profile.html')
