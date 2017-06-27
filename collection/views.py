@@ -29,13 +29,10 @@ def upload(request):
 def complete(request):
 	#Get survey data
 	if request.method == 'POST':
-		age = int(request.POST.get('ageOptions'))
-		gender = int(request.POST.get('genderOptions'))
 		mentalOptions = request.POST.getlist('mentalOptions')
 		mental = 0
 		for m in mentalOptions:
 			mental += int(m)
-		diagnosis = int(request.POST.get('diagnosisOptions'))
 		medicationOptions = request.POST.getlist('medicationOptions')
 		medication = 0
 		for m in medicationOptions:
@@ -48,7 +45,6 @@ def complete(request):
 		flash = int(request.POST.get('otherOptions'))
 		survey = Survey()
 		imageId =  request.session.get('eye_image')
-		print(imageId)
 		survey.image = EyeImage.objects.get(id=imageId)
 		survey.age = age
 		survey.sex = gender
@@ -69,27 +65,28 @@ def consent(request):
 	return render(request, 'collection/consent.html')
 
 def survey(request):
-	# x = float(request.POST['x_offset'])
-	# y = float(request.POST['y_offset'])
-	# width = float(request.POST['width'])
-	# height = float(request.POST['height'])
+	x = float(request.POST['x_offset'])
+	y = float(request.POST['y_offset'])
+	width = float(request.POST['width'])
+	height = float(request.POST['height'])
 
-	# right_low_x = x + width
-	# right_low_y = y + height
+	right_low_x = x + width
+	right_low_y = y + height
 
-	# eye_image = EyeImage(eye_image=request.FILES['file0'])
-	# eye_image.participant = request.user
-	# eye_image.image_id = 2
-	# eye_image.image_name = request.FILES['file0'].name
-	# eye_image.save()
-	# request.session['eye_image'] = eye_image.id
-	# print(eye_image.id)
+	eye_image = EyeImage(eye_image=request.FILES['file0'])
+	eye_image.participant = request.user
+	eye_image.image_id = 2
+	eye_image.image_name = request.FILES['file0'].name
+	eye_image.save()
+	request.session['eye_image'] = eye_image.id
 
-	# #Crop image
-	# im = Image.open(request.FILES['file0'])
-	# box = (x, y, right_low_x, right_low_y)
-	# cropped = im.crop(box)
-	# cropped.save(settings.MEDIA_ROOT + '/crop/' + request.FILES['file0'].name, 'png')
+	#Crop image
+	im = Image.open(request.FILES['file0'])
+	if im.size[0] > im.size[1]:
+		im = im.rotate(-90)
+	box = (x, y, right_low_x, right_low_y)
+	cropped = im.crop(box)
+	cropped.save(settings.MEDIA_ROOT + '/crop/' + request.FILES['file0'].name, 'png')
 
 	return render(request, 'collection/survey.html')
 
