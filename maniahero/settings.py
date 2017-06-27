@@ -140,3 +140,6 @@ SITE_ID = 2
 
 MEDIA_ROOT = 'public/media'
 MEDIA_URL = '/media/'
+
+
+ALLOWED_HOSTS = ['192.168.0.2', '127.0.0.1']
