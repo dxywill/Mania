@@ -42,14 +42,18 @@ def complete(request):
 		substances = 0
 		for s in substancesOptions:
 			substances += int(s)
-		flash = int(request.POST.get('otherOptions'))
+		if request.POST.get('otherOptions'):
+			flash = int(request.POST.get('otherOptions'))
+		else:
+			flash = -1
 		survey = Survey()
 		imageId =  request.session.get('eye_image')
 		survey.image = EyeImage.objects.get(id=imageId)
-		survey.age = age
-		survey.sex = gender
 		survey.feelings = mental
-		survey.diagnosis = diagnosis
+		if request.POST.get('stateOptions'):
+			survey.state = int(request.POST.get('stateOptions'))
+		else:
+			survey.state = -1
 		survey.medications = str(medication) + medicationOther
 		survey.substances = substances
 		survey.flash = flash
