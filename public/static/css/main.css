@@ -73,7 +73,7 @@ textarea {
 .modal-body { 
     overflow-y: scroll; 
     position: absolute; 
-    top: 55px; 
+    top: 65px; 
     bottom: 65px; 
     width: 100%; 
 } 
