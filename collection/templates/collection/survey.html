@@ -16,178 +16,128 @@
 		</div>
 		<div class="col-md-8">
 			<h2 align="center" class="survey-title" > EXIT SURVEY</h2>
-			<form  method="post" action="{% url "complete" %}">
+			<form  name="exitSurvey" method="post" action="{% url "complete" %}">
 				{% csrf_token %}
 
-				<h3>Demographic Information </h3>
-				<hr>
-				<h4> Please select your age range: </h4>
+
+				<h4> What is your state when you took this photo? </h4>
 				<label class="radio">
-				  <input type="radio" name="ageOptions" value="0" checked> Under 18
+				  <input type="radio" name="stateOptions" value="0"> I feel depressed 
 				</label>
 				<label class="radio">
-				  <input type="radio" name="ageOptions"  value="1"> 18-25
+				  <input type="radio" name="stateOptions" value="1"> I feel Mania
 				</label>
 				<label class="radio">
-				  <input type="radio" name="ageOptions"  value="2"> 26-30
-				</label>
-				<label class="radio">
-				  <input type="radio" name="ageOptions"  value="3"> 31-35
-				</label>
-				<label class="radio">
-				  <input type="radio" name="ageOptions"  value="4"> 36-40
-				</label>
-				<label class="radio">
-				  <input type="radio" name="ageOptions"  value="5"> 41-45
-				</label>
-				<label class="radio">
-				  <input type="radio" name="ageOptions" value="6"> 46-50
-				</label>
-				<label class="radio">
-				  <input type="radio" name="ageOptions" value="7"> 51-55
-				</label>
-				<label class="radio">
-				  <input type="radio" name="ageOptions" value="8"> 56-60
-				</label>
-				<label class="radio">
-				  <input type="radio" name="ageOptions" value="9"> 61-65
-				</label>
-				<label class="radio">
-				  <input type="radio" name="ageOptions" value="10"> over 65
+				  <input type="radio" name="stateOptions" value="2"> I don’t know
 				</label>
 
-				<h4> Please select the gender that you identify as: </h4>
-				<label class="radio">
-				  <input type="radio" name="genderOptions"  value="0"> Male
-				</label>
-				<label class="radio">
-				  <input type="radio" name="genderOptions"  value="1"> Female
-				</label>
-				<label class="radio">
-				  <input type="radio" name="genderOptions"  value="2"> I prefer not to say
-				</label>
+				 <div id="survey-box">
+						<h3 > Mental State Questionnaire </h3>
+						<hr>
+						<h4> Please check the boxes that represent how you felt during the time of the picture. </h4>
+						<label class="checkbox">
+						  <input type="checkbox" name="mentalOptions" value="1"> I felt upbeat and had a lot of fun. 
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="mentalOptions" value="2"> People told me I was cruel or that I was not being empathetic.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="mentalOptions" value="4"> Being in my body felt uncomfortable and restless.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="mentalOptions" value="8"> I felt that anything in life was possible.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="mentalOptions" value="16"> I felt compelled to discuss my amazing ideas with everyone and get them involved in my beautiful project.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="mentalOptions" value="32"> I felt like the world around me was not real.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="mentalOptions" value="64"> I felt an aggressive energy, as if I wanted to drive fast, punch walls, or give people a piece of my mind.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="mentalOptions" value="128"> I felt that normally difficult tasks were easy and enjoyable.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="mentalOptions" value="256"> I felt that everything in my life was wrong and I had to leave immediately no matter who got hurt.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="mentalOptions" value="512"> I felt fantastic about the way I looked.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="mentalOptions" value="1024"> I made dangerous or unusually aggressive and risky decisions such as intense road rage or picking fights.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="mentalOptions" value="2048"> I acted suspicious, irritated and mean.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="mentalOptions" value="4096"> I felt wonderful in my body.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="mentalOptions" value="8192"> I was worried that people were talking about me.
+						</label>
 
-				<h3 > Mental State Questionnaire </h3>
-				<hr>
-				<h4> Please check the boxes that represent how you felt during the time of the picture. </h4>
-				<label class="checkbox">
-				  <input type="checkbox" name="mentalOptions" value="1"> I felt upbeat and had a lot of fun. 
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="mentalOptions" value="2"> People told me I was cruel or that I was not being empathetic.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="mentalOptions" value="4"> Being in my body felt uncomfortable and restless.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="mentalOptions" value="8"> I felt that anything in life was possible.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="mentalOptions" value="16"> I felt compelled to discuss my amazing ideas with everyone and get them involved in my beautiful project.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="mentalOptions" value="32"> I felt like the world around me was not real.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="mentalOptions" value="64"> I felt an aggressive energy, as if I wanted to drive fast, punch walls, or give people a piece of my mind.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="mentalOptions" value="128"> I felt that normally difficult tasks were easy and enjoyable.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="mentalOptions" value="256"> I felt that everything in my life was wrong and I had to leave immediately no matter who got hurt.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="mentalOptions" value="512"> I felt fantastic about the way I looked.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="mentalOptions" value="1024"> I made dangerous or unusually aggressive and risky decisions such as intense road rage or picking fights.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="mentalOptions" value="2048"> I acted suspicious, irritated and mean.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="mentalOptions" value="4096"> I felt wonderful in my body.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="mentalOptions" value="8192"> I was worried that people were talking about me.
-				</label>
 
-				<h4> Please check the box that represents your diagnosis: </h4>
+						<h4> Check the medications you were taking at the time of the picture: </h4>
 
-				<label class="radio">
-				  <input type="radio" name="diagnosisOptions"  value="1"> Bipolar one
-				</label>
-				<label class="radio">
-				  <input type="radio" name="diagnosisOptions"  value="2"> Bipolar two
-				</label>
-				<label class="radio">
-				  <input type="radio" name="diagnosisOptions"  value="4"> Bipolar non specified
-				</label>
-				<label class="radio">
-				  <input type="radio" name="diagnosisOptions"  value="8"> Schizoaffective
-				</label>
-				<label class="radio">
-				  <input type="radio" name="diagnosisOptions"  value="16"> I don’t know
-				</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="medicationOptions" value="1"> SSRI and SNRI Antidepressants.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="medicationOptions" value="2"> Anti-psychotics.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="medicationOptions" value="4"> Anti-Anxiety medication.
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="medicationOptions" value="8"> Mood Stabilizer.
+						</label>
+						<div class="textarea"> 
+							<label class="text-label"> Other: </label>
+							<textarea class="form-control" rows="5" name='medicationOther'>
+							</textarea> 
+						</div>
 
-				<h4> Check the medications you were taking at the time of the picture: </h4>
+						<h4> Check the substances you were using at the time of the picture. Please know this
+		information will be kept confidential.</h4>
 
-				<label class="checkbox">
-				  <input type="checkbox" name="medicationOptions" value="1"> SSRI and SNRI Antidepressants.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="medicationOptions" value="2"> Anti-psychotics.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="medicationOptions" value="4"> Anti-Anxiety medication.
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="medicationOptions" value="8"> Mood Stabilizer.
-				</label>
-				<div class="textarea"> 
-					<label class="text-label"> Other: </label>
-					<textarea class="form-control" rows="5" name='medicationOther'>
-					</textarea> 
-				</div>
+						<label class="checkbox">
+						  <input type="checkbox" name="substancesOptions" value="1"> Marijuana
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="substancesOptions" value="2"> Hallucinogenics
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="substancesOptions" value="4"> Meth amphetamine
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="substancesOptions" value="8"> Cocaine
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="substancesOptions" value="16"> Opioids
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="substancesOptions" value="32"> Alcohol
+						</label>
+						<label class="checkbox">
+						  <input type="checkbox" name="substancesOptions" value="48"> Steroids
+						</label>
 
-				<h4> Check the substances you were using at the time of the picture. Please know this
-information will be kept confidential.</h4>
+						<h3> Other Information </h3>
+						<hr>
+						<h4> Was a flash used in this photo: </h4>
+						<label class="radio">
+						  <input type="radio" name="otherOptions" value="1"> Yes
+						</label>
+						<label class="radio">
+						  <input type="radio" name="otherOptions" value="2"> No
+						</label>
+						<label class="radio">
+						  <input type="radio" name="otherOptions" value="4"> I don’t know
+						</label>
 
-				<label class="checkbox">
-				  <input type="checkbox" name="substancesOptions" value="1"> Marijuana
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="substancesOptions" value="2"> Hallucinogenics
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="substancesOptions" value="4"> Meth amphetamine
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="substancesOptions" value="8"> Cocaine
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="substancesOptions" value="16"> Opioids
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="substancesOptions" value="32"> Alcohol
-				</label>
-				<label class="checkbox">
-				  <input type="checkbox" name="substancesOptions" value="48"> Steroids
-				</label>
-
-				<h3> Other Information </h3>
-				<hr>
-				<h4> Was a flash used in this photo: </h4>
-				<label class="radio">
-				  <input type="radio" name="otherOptions" value="1"> Yes
-				</label>
-				<label class="radio">
-				  <input type="radio" name="otherOptions" value="2"> No
-				</label>
-				<label class="radio">
-				  <input type="radio" name="otherOptions" value="4"> I don’t know
-				</label>
+					</div>
 				<button type="submit" id="create" class="btn btn-lg btn-primary btn-block">Submit </button>
 			</form>
 		</div>
@@ -195,6 +145,19 @@ information will be kept confidential.</h4>
 		</div>
 	</div>
 </div>
+
+<script>
+    var rad = document.exitSurvey.stateOptions;
+    for(var i = 0; i < rad.length; i++) {
+        rad[i].onclick = function() {
+            if (this.value == "1") {
+            	document.getElementById("survey-box").style.display = "inherit"; 
+            } else {
+            	document.getElementById("survey-box").style.display = "none"; 
+            }
+        };
+    }
+</script>
 
 
 {% endblock %}

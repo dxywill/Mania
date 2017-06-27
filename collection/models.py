@@ -14,13 +14,17 @@ class EyeImage(models.Model):
 
 class Survey(models.Model):
 	image = models.ForeignKey(EyeImage, on_delete=models.CASCADE)
-	age = models.IntegerField()
-	sex = models.IntegerField()
 	feelings = models.IntegerField()
-	diagnosis = models.IntegerField()
+	state = models.IntegerField()
 	medications = models.CharField(max_length=200)
 	substances = models.IntegerField()
 	flash = models.IntegerField()
 
 	def __str__(self):
 		return 'Survey for ' + self.image.image_name
+
+class Profile(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	age = models.IntegerField()
+	gender = models.IntegerField()
+	diagnosis = models.IntegerField()

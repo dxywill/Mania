@@ -19,7 +19,7 @@
 					        <input  type="hidden" class="form-control" id="id_password1" name="password1" placeholder="Enter password" value="maniaPassword123"/></p>
 					</div>
 					<div class="form-group">
-					    <p class="required"><label for="id_password2">Password (again):</label>
+<!-- 					    <p class="required"><label for="id_password2">Password (again):</label> -->
 					 <input type="hidden" class="form-control" id="id_password2" name="password2" placeholder="Enter password again" value="maniaPassword123" /></p>
 					</div>
 
@@ -32,7 +32,40 @@
 		    			</div>
 	    			{% endif %}
 
+	    			<!-- Profile info -->
+	    			<label for="sel1">Age Range:</label>
+				      <select class="form-control" name="agerange">
+				        <option value="0">Under 18</option>
+				        <option value="1">18-25</option>
+				        <option value="2">26-30</option>
+				        <option value="3">31-35</option>
+				        <option value="4">36-40</option>
+				        <option value="5">41-45</option>
+				        <option value="6">46-50</option>
+				        <option value="7">51-55</option>
+				        <option value="8">56-60</option>
+				        <option value="9">61-65</option>
+				        <option value="10">over 65</option>
+				      </select>
+					 <br>
 
+					 <label for="sel1">Gender:</label>
+				      <select class="form-control" name="gender">
+				        <option value="0" >Male</option>
+				        <option value="1">Femal</option>
+				        <option value="2">I perfer not to say</option>
+				      </select>
+					 <br>
+
+					 <label for="sel1">Diagnosis:</label>
+				      <select class="form-control" name="diagnosis">
+				        <option value="0">Bipolar one</option>
+				        <option value="1">Bipolar two</option>
+				        <option value="2">Bipolar non specified</option>
+				        <option value="3">Schizoaffective</option>
+				        <option value="4">I don't know</option>
+				      </select>
+					 <br>
 	    			<div class="checkbox">
 				    <label>
 				      <input id="consent-box" type="checkbox"> Sign the <a data-toggle="modal" data-target="#myModal" >CONSENT FORM</a> by clicking the checkbox

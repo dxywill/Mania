@@ -87,3 +87,7 @@ textarea {
     width: 100%; 
     bottom: 0; 
 }
+
+#survey-box {
+    display: none;
+}
