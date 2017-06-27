@@ -12,9 +12,9 @@
 		</div>
   	</div> -->
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-2">
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-8">
 			<h2 align="center" class="survey-title" > EXIT SURVEY</h2>
 			<form  method="post" action="{% url "complete" %}">
 				{% csrf_token %}
@@ -147,10 +147,9 @@
 				</label>
 				<div class="textarea"> 
 					<label class="text-label"> Other: </label>
-					<textarea rows="5" cols="68" name='medicationOther'>
+					<textarea class="form-control" rows="5" name='medicationOther'>
 					</textarea> 
 				</div>
-
 
 				<h4> Check the substances you were using at the time of the picture. Please know this
 information will be kept confidential.</h4>
@@ -192,7 +191,7 @@ information will be kept confidential.</h4>
 				<button type="submit" id="create" class="btn btn-lg btn-primary btn-block">Submit </button>
 			</form>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-2">
 		</div>
 	</div>
 </div>

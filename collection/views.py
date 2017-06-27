@@ -92,7 +92,6 @@ def survey(request):
 	cropped = im.crop(box)
 	cropped.save(settings.MEDIA_ROOT + '/crop/' + request.FILES['file0'].name, 'png')
 
-
 	return render(request, 'collection/survey.html')
 
 

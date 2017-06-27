@@ -53,6 +53,9 @@
     left: 0; 
     right: 0; 
 } 
+.upload {
+    margin-left: 10px;
+}
 
 textarea {
    resize: none;
@@ -75,7 +78,9 @@ textarea {
     width: 100%; 
 } 
 
-.modal-header .close {margin-right: 15px;} 
+.modal-header .close {
+    margin-right: 15px;
+} 
 
 .modal-footer {
     position: absolute; 

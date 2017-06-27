@@ -10,7 +10,7 @@
         <div class="col-md-1">
             
         </div> 
-        <div class="col-md-7">
+        <div class="col-md-7 upload">
             <h3>Please select the file:</h3>
 
             <form action="{% url "survey" %}" method="post" enctype="multipart/form-data"> 
@@ -50,6 +50,7 @@ window.addEventListener('DOMContentLoaded', function () {
         autoCropArea:0.5,
         minCropBoxWidth:50,
         minCropBoxHeight:30,
+        dragMode:'none',
         crop: function (e) {
             var cropper = this.cropper;
             var imageData = cropper.getData();
