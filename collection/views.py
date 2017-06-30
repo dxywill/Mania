@@ -87,7 +87,7 @@ def survey(request):
 	#Crop image
 	im = Image.open(request.FILES['file0'])
 	if im.size[0] > im.size[1]:
-		im = im.rotate(-90)
+		im = im.transpose(Image.ROTATE_270)
 	box = (x, y, right_low_x, right_low_y)
 	cropped = im.crop(box)
 	cropped.save(settings.MEDIA_ROOT + '/crop/' + request.FILES['file0'].name, 'png')
