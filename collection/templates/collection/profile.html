@@ -9,24 +9,23 @@
        				<h3 class="form-signin-heading">FILL IN BASIC INFO</h3>
 	    			<label for="sel1">Age Range:</label>
 				      <select class="form-control" name="agerange">
-				        <option value="0">Under 18</option>
-				        <option value="1">18-25</option>
-				        <option value="2">26-30</option>
-				        <option value="3">31-35</option>
-				        <option value="4">36-40</option>
-				        <option value="5">41-45</option>
-				        <option value="6">46-50</option>
-				        <option value="7">51-55</option>
-				        <option value="8">56-60</option>
-				        <option value="9">61-65</option>
-				        <option value="10">over 65</option>
+				        <option value="0">18-25</option>
+				        <option value="1">26-30</option>
+				        <option value="2">31-35</option>
+				        <option value="3">36-40</option>
+				        <option value="4">41-45</option>
+				        <option value="5">46-50</option>
+				        <option value="6">51-55</option>
+				        <option value="7">56-60</option>
+				        <option value="8">61-65</option>
+				        <option value="9">over 65</option>
 				      </select>
 					 <br>
 
 					 <label for="sel1">Gender:</label>
 				      <select class="form-control" name="gender">
 				        <option value="0" >Male</option>
-				        <option value="1">Femal</option>
+				        <option value="1">Female</option>
 				        <option value="2">I perfer not to say</option>
 				      </select>
 					 <br>
@@ -42,7 +41,7 @@
 					 <br>
 			<div class="checkbox">
 				    <label>
-				      <input id="consent-box" type="checkbox"> Sign the <a data-toggle="modal" data-target="#myModal" >CONSENT FORM</a> by clicking the checkbox
+				       Please read the <a data-toggle="modal" data-target="#myModal" >consent form</a> before sign up
 				    </label>
 				  </div>
 				  <button type="submit" id="create" class="btn btn-lg btn-primary btn-block" disabled="true">Sign Up </button>
@@ -59,7 +58,9 @@
 		            </div>
 		            <div class="modal-body"> {% include 'collection/form_content.html' %} </div>
 		            <div class="modal-footer">
-		                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		            	<input id="consent-box" type="checkbox"> I agree  
+		            	<!-- <input id="consent-box-disagree" type="checkbox"> I disagree  -->
+		                <button id="dismiss-modal" type="button" class="btn btn-default" data-dismiss="modal" style="display: none;">Close</button>
 		            </div>
 		        </div><!-- /.modal-content -->
 		    </div><!-- /.modal -->
@@ -70,12 +71,16 @@
 $("#consent-box").click(function() {
 
 	if ($(this).is(':checked')) {
+		document.getElementById("dismiss-modal").click();
 		$("#create").removeAttr("disabled");  
-
 	}
 	else {
 		$("#create").attr("disabled","true");  
 	}
+});
+
+$("#consent-box-disagree").click(function() {
+	document.getElementById("dismiss-modal").click();
 });
 
 </script>

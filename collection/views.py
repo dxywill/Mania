@@ -110,7 +110,7 @@ def survey(request):
 	return render(request, 'collection/survey.html')
 
 def profile(request):
-	# #Get profile data
+	#Get profile data
 	if request.method == 'POST':
 		age = int(request.POST.get('agerange'))
 		gender = int(request.POST.get('gender'))
