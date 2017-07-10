@@ -153,7 +153,7 @@
 		   		<li>Keep in mind that a flash can alter the pupil of the eyes and it would be preferred to not use a flash but rather natural light. If a flash was used, select the option on the upload page that a flash was used in the photo. </li>
 		   </ul>
 		   <p>
-		   	To learn more before starting the process, please see <a href="{% url 'faq' %}">Frequently Asked Questions </a>
+		   	To learn more before starting the process, please see <a data-toggle="modal" data-target="#myModal">Frequently Asked Questions </a>
 		   </p>
 		</div>
 
@@ -161,23 +161,22 @@
 		   
 		</div>
   	</div>
-
-  	<!-- <div class="row"> 
-  		<div class="col-md-4"> </div>
-  		<div class="col-md-4"> 
-  			<h2 align="center"> Let's Get Started </h2>
-  		</div>
-  		<div class="col-md-4"> </div>
-  	</div>
-  	<div class="row"> 
-  		<div class="col-md-4"> </div>
-  		<div class="col-md-4 start">  
-  			<div align="center">
-  				<a align="center" href="{% url 'registration_register' %}" class="btn btn-start">Create Your Anonymous User Name Here to Submit Your Photos</a>
-  			</div>
-  		</div>
-  		<div class="col-md-4"> </div>
-  	</div> -->
 </div>
+
+<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h3 class="modal-title" id="myModalLabel" align="center"> Frequently Asked Questions (FAQs) </h3>
+		            </div>
+		            <div class="modal-body"> {% include 'collection/faq_content.html' %} </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
+		</div>
 
 {% endblock %}
