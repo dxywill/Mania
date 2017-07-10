@@ -8,7 +8,7 @@ from django.shortcuts import redirect
 # Create your views here.
 
 def landing(request):
-	return render(request, 'collection/landing.html')
+	return render(request, 'collection/landing_new.html')
 
 def index(request):
 	if request.method == 'POST':

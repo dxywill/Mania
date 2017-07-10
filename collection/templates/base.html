@@ -22,12 +22,21 @@
 <script type="text/javascript" src="{% static "js/main.js" %}"></script>
 </head>
 <body> 
+
+	{% block content-nav %}
+	{% include 'collection/nav.html' %}
+	{% endblock %}
+
+	{% block content-top %}
 	{% include 'collection/header.html' %}
+	{% endblock %}
 
 	{% block content %}
 	default content
 	{% endblock %}
 
+	{% block content-bottom %}
 	{% include 'collection/bottom.html' %}
+	{% endblock %}
 </body>
 </html>

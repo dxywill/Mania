@@ -1,5 +1,19 @@
+body {
+    background-color: #ebf6ee;
+}
+
+.row {
+    margin-right: 0;
+    margin-left:0;
+}
+
+.navbar-default {
+    background-color: #fff;
+    border-color: #fff;
+}
 .abstract {
 	font-style: italic;
+    margin-top: 160px;
 }
 
 .gap {
@@ -96,4 +110,63 @@ textarea {
 
 #survey-box {
     display: none;
+}
+
+.container-fluid.landing-top {
+    background-image: url("../img/landing_top.jpg");
+    background-size: 100% 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.landing-top .arrow {
+    background-image: url("../img/landing_arrow.png");
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 59px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.landing-middle .faces {
+    background-image: url("../img/landing_faces.png");
+    height: 390px;
+    /* Center and scale the image nicely */
+    background-size: 100% 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.landing-middle h2 {
+    margin-bottom: 30px;
+}
+
+.container-fluid.landing-bottom {
+    background-image: url("../img/landing_bottom.png");
+    background-size: 100% 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.landing-bottom h2 {
+    margin-bottom: 30px;
+}
+
+.font_4 {font: normal normal normal 32px/1.4em futura-lt-w01-light,sans-serif ;color:#2F2E2E;} 
+
+.landing-bottom .start {
+    margin-bottom: 30px;
+}
+
+.btn-start {
+    background-color: #494a4b;
+    border-color: #494a4b;
+}
+
+.start a {
+    color: #fff;
+    width: 200px;
 }
