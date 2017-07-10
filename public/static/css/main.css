@@ -15,7 +15,7 @@ body {
 .abstract {
 	font-style: italic;
     font-size: 16px;
-    margin-top: 120px;
+    margin-top: 60px;
 }
 
 .gap {
@@ -128,7 +128,7 @@ textarea {
     background-position: center;
     background-repeat: no-repeat;
     height: 59px;
-    margin-top: 100px;
+    margin-top: 10px;
     margin-bottom: 100px;
 }
 
@@ -170,10 +170,29 @@ textarea {
 
 .start a {
     color: #fff;
-    width: 200px;
 }
+
 .landing-school {
     font-weight: 200;
     font-size: 28px;
     margin-top: 10px;
+}
+.form-box {
+    display: inline-block;
+}
+.login-box {
+    width: 400px;
+}
+
+.login-left {
+    width: 200px;
+    float: left;
+    margin-right: 20px;
+}
+
+.login-right {
+    width: 87px;
+} 
+.login-control .form-signin {
+    margin-left: 0;
 }

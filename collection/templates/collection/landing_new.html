@@ -9,11 +9,11 @@
 <div class="container-fluid landing-top">
 
 	<div class="row">
-		<div class="col-md-4"> 
+		<div class="col-md-3"> 
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<div class="alert alert-info gap">
 		    <p>
 		    	<h4> <strong> Need to talk to someone about your mental health? </strong> </h4>
@@ -42,12 +42,42 @@
   	<div class="row">
   		<div class="col-md-7">
   		</div>
-  		<div class="col-md-3">
-  			<p  class="abstract" align="center"> 
-						 An estimated 5 million people are diagnosed with bipolar in the US alone.  Southern Methodist University (SMU) is conducting a research study to help those affected by this illness.	   
+  		<div class="col-md-4">
+  			<p  class="abstract"> 
+				 An estimated 4-6 % of people are diagnosed with bipolar disorder throughout the world.  Southern Methodist University (SMU) is conducting a research study to help those affected by bipolar disorder learn to detect and ultimately manage mania through observing changes in the eyes. Please read this homepage for information on the study. You can then sign in below to submit your pictures.   
 			</p>
+
+			<div class="login-control">
+				<form class="form-signin" method="post" action=".">
+	                {% csrf_token %}
+
+	                <div class="login-box">
+			            <div class="form-group login-left"> 
+							<input class="form-control" placeholder="Username" id="id_username" maxlength="254" name="username" type="text" required autofocus=""/>
+						</div>
+						<div class="form-group">
+							<input type="hidden" class="form-control" placeholder="Password" id="id_password" name="password"  value="maniaPassword123" />
+						</div>
+			        	<button class="btn btn-lg btn-primary login-right" type="submit" value="Submit" >Sign in</button>
+			        	{% if form.errors %} 
+							<div class="alert alert-danger">
+								{% for field in form %}
+								         {{ field.errors }}
+					    		{% endfor %}
+
+					    		{{ form.non_field_errors }} 
+				    		</div>
+		    			{% endif %}
+
+		        	</div>
+		        	
+	        	</form>
+
+	        	<p align="center" >Don't have a username? <a href="{% url 'registration_register' %}">Create Your Anonymous User Name Here to Submit Your Photos!</a></p>
+	        </div>
+
   		</div>
-  		<div class="col-md-2">
+  		<div class="col-md-1">
   		</div>
   	</div>
 
@@ -132,7 +162,7 @@
 		</div>
   	</div>
 
-  	<div class="row"> 
+  	<!-- <div class="row"> 
   		<div class="col-md-4"> </div>
   		<div class="col-md-4"> 
   			<h2 align="center"> Let's Get Started </h2>
@@ -143,11 +173,11 @@
   		<div class="col-md-4"> </div>
   		<div class="col-md-4 start">  
   			<div align="center">
-  				<a align="center" href="{% url 'registration_register' %}" class="btn btn-start">HERE</a>
+  				<a align="center" href="{% url 'registration_register' %}" class="btn btn-start">Create Your Anonymous User Name Here to Submit Your Photos</a>
   			</div>
   		</div>
   		<div class="col-md-4"> </div>
-  	</div>
+  	</div> -->
 </div>
 
 {% endblock %}
