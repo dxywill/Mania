@@ -21,10 +21,13 @@ class Survey(models.Model):
 	flash = models.IntegerField()
 
 	def __str__(self):
-		return 'Survey for ' + self.image.image_name
+		return 'Survey of image ' + self.image.image_name
 
 class Profile(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	age = models.IntegerField()
 	gender = models.IntegerField()
 	diagnosis = models.IntegerField()
+
+	def __str__(self):
+		return 'Profile of user ' + self.user.username

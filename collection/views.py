@@ -5,6 +5,7 @@ from collection.forms import ImageUploadForm
 from django.conf import settings
 from PIL import Image
 from django.shortcuts import redirect
+import time
 # Create your views here.
 
 def landing(request):
@@ -78,10 +79,14 @@ def survey(request):
 	right_low_x = x + width
 	right_low_y = y + height
 
+
+	ts = str(time.time())
+
+	request.FILES['file0'].name = request.user.username + '_' + ts + '.png'
 	eye_image = EyeImage(eye_image=request.FILES['file0'])
 	eye_image.participant = request.user
 	eye_image.image_id = 2
-	eye_image.image_name = request.FILES['file0'].name
+	eye_image.image_name = request.user.username + '_' + ts + '.png'
 	eye_image.save()
 	request.session['eye_image'] = eye_image.id
 
@@ -90,8 +95,17 @@ def survey(request):
 	if im.size[0] > im.size[1]:
 		im = im.transpose(Image.ROTATE_270)
 	box = (x, y, right_low_x, right_low_y)
+
 	cropped = im.crop(box)
-	cropped.save(settings.MEDIA_ROOT + '/crop/' + request.FILES['file0'].name, 'png')
+	crop_path = settings.MEDIA_ROOT + '/crop/' + request.user.username + '_' + ts + '_crop.png'
+	cropped.save(crop_path, 'png')
+
+	rt_path = 'crop/' + request.user.username + '_' + ts + '_crop.png'
+	eye_image_crop = EyeImage(eye_image=rt_path)
+	eye_image_crop.participant = request.user
+	eye_image_crop.image_id = 3
+	eye_image_crop.image_name = request.user.username + '_' + ts + '_crop.png'
+	eye_image_crop.save()
 
 	return render(request, 'collection/survey.html')
 
