@@ -154,6 +154,20 @@ textarea {
     background-repeat: no-repeat;
 }
 
+.top-logo {
+    background-image: url("../img/smu_logo.png");
+    background-size: 100% 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 58px;
+    width: 198px;
+    margin-top: 20px;
+}
+
+.main-logo {
+    margin-left: 15px;
+}
 .landing-bottom h2 {
     margin-bottom: 30px;
 }
