@@ -97,48 +97,48 @@ def encrypt(key, filename):
                 outf.write(encryptor.encrypt(chunk))
 
 def survey(request):
-	# x = float(request.POST['x_offset'])
-	# y = float(request.POST['y_offset'])
-	# width = float(request.POST['width'])
-	# height = float(request.POST['height'])
+	x = float(request.POST['x_offset'])
+	y = float(request.POST['y_offset'])
+	width = float(request.POST['width'])
+	height = float(request.POST['height'])
 
-	# right_low_x = x + width
-	# right_low_y = y + height
+	right_low_x = x + width
+	right_low_y = y + height
 
 
-	# ts = str(time.time())
+	ts = str(time.time())
 
-	# request.FILES['file0'].name = request.user.username + '_' + ts + '.png'
-	# eye_image = EyeImage(eye_image=request.FILES['file0'])
-	# eye_image.participant = request.user
-	# eye_image.image_id = 2
-	# eye_image.image_name = request.user.username + '_' + ts + '.png'
-	# eye_image.save()
-	# request.session['eye_image'] = eye_image.id
+	request.FILES['file0'].name = request.user.username + '_' + ts + '.png'
+	eye_image = EyeImage(eye_image=request.FILES['file0'])
+	eye_image.participant = request.user
+	eye_image.image_id = 2
+	eye_image.image_name = request.user.username + '_' + ts + '.png'
+	eye_image.save()
+	request.session['eye_image'] = eye_image.id
 
-	# #Crop image
-	# im = Image.open(request.FILES['file0'])
-	# if im.size[0] > im.size[1]:
-	# 	im = im.transpose(Image.ROTATE_270)
-	# box = (x, y, right_low_x, right_low_y)
+	#Crop image
+	im = Image.open(request.FILES['file0'])
+	if im.size[0] > im.size[1]:
+		im = im.transpose(Image.ROTATE_270)
+	box = (x, y, right_low_x, right_low_y)
 
-	# cropped = im.crop(box)
-	# crop_path = settings.MEDIA_ROOT + '/crop/' + request.user.username + '_' + ts + '_crop.png'
-	# cropped.save(crop_path, 'png')
+	cropped = im.crop(box)
+	crop_path = settings.MEDIA_ROOT + '/crop/' + request.user.username + '_' + ts + '_crop.png'
+	cropped.save(crop_path, 'png')
 
-	# rt_path = 'crop/' + request.user.username + '_' + ts + '_crop.png'
-	# eye_image_crop = EyeImage(eye_image=rt_path)
-	# eye_image_crop.participant = request.user
-	# eye_image_crop.image_id = 3
-	# eye_image_crop.image_name = request.user.username + '_' + ts + '_crop.png'
-	# eye_image_crop.save()
+	rt_path = 'crop/' + request.user.username + '_' + ts + '_crop.png'
+	eye_image_crop = EyeImage(eye_image=rt_path)
+	eye_image_crop.participant = request.user
+	eye_image_crop.image_id = 3
+	eye_image_crop.image_name = request.user.username + '_' + ts + '_crop.png'
+	eye_image_crop.save()
 
-	# #encrypt the image
-	# password = "theImagePassword$"
-	# hasher = SHA256.new(password.encode("latin-1"))
-	# digest = hasher.digest()
-	# filename = crop_path
-	# encrypt(digest, filename)
+	#encrypt the image
+	password = "theImagePassword$"
+	hasher = SHA256.new(password.encode("latin-1"))
+	digest = hasher.digest()
+	filename = crop_path
+	encrypt(digest, filename)
 
 	return render(request, 'collection/survey.html')
 
