@@ -36,7 +36,6 @@
 				        <option value="1">Bipolar two</option>
 				        <option value="2">Bipolar non specified</option>
 				        <option value="3">Schizoaffective</option>
-				        <option value="4">I don't know</option>
 				      </select>
 					 <br>
 			<div class="checkbox">
@@ -44,7 +43,7 @@
 				       Please read the <a data-toggle="modal" data-target="#myModal" >consent form</a> before sign up
 				    </label>
 				  </div>
-				  <button type="submit" id="create" class="btn btn-lg btn-primary btn-block" disabled="true">Sign Up </button>
+				  <button type="submit" id="create" class="btn btn-lg btn-primary btn-block" disabled="true">Create User Name</button>
 
         </form>
         <p align="center" >Already have a username? <a href="{% url 'auth_login' %}">Sign In </a></p>
@@ -58,7 +57,7 @@
 		            </div>
 		            <div class="modal-body"> {% include 'collection/form_content.html' %} </div>
 		            <div class="modal-footer">
-		            	<input id="consent-box" type="checkbox"> I agree  
+		            	<input id="consent-box" type="checkbox"> Accept 
 		            	<!-- <input id="consent-box-disagree" type="checkbox"> I disagree  -->
 		                <button id="dismiss-modal" type="button" class="btn btn-default" data-dismiss="modal" style="display: none;">Close</button>
 		            </div>

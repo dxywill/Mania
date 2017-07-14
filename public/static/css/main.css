@@ -16,7 +16,7 @@ body {
 .abstract {
 	font-style: italic;
     font-size: 16px;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 .gap {
@@ -129,7 +129,6 @@ textarea {
     background-position: center;
     background-repeat: no-repeat;
     height: 59px;
-    margin-top: 10px;
     margin-bottom: 100px;
 }
 
