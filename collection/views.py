@@ -6,6 +6,10 @@ from django.conf import settings
 from PIL import Image
 from django.shortcuts import redirect
 import time
+
+import os, random
+from Crypto.Cipher import AES
+from Crypto.Hash import SHA256
 # Create your views here.
 
 def landing(request):
@@ -70,6 +74,28 @@ def faq(request):
 def consent(request):
 	return render(request, 'collection/consent.html')
 
+
+def encrypt(key, filename):
+    chunk_size = 64*1024
+    output_file = filename+".enc"
+    file_size = str(os.path.getsize(filename)).zfill(16)
+    IV = ''
+    for i in range(16):
+        IV += chr(random.randint(0, 0xFF))
+    encryptor = AES.new(key, AES.MODE_CBC, IV.encode("latin-1"))
+    with open(filename, 'rb') as inputfile:
+        with open(output_file, 'wb') as outf:
+            outf.write(file_size.encode("latin-1"))
+            outf.write(IV.encode("latin-1"))
+            while True:
+                chunk = inputfile.read(chunk_size)
+                chunk = chunk
+                if len(chunk) == 0:
+                    break
+                elif len(chunk) % 16 != 0:
+                   chunk += b' '*(16 - len(chunk)%16)
+                outf.write(encryptor.encrypt(chunk))
+
 def survey(request):
 	x = float(request.POST['x_offset'])
 	y = float(request.POST['y_offset'])
@@ -106,6 +132,13 @@ def survey(request):
 	eye_image_crop.image_id = 3
 	eye_image_crop.image_name = request.user.username + '_' + ts + '_crop.png'
 	eye_image_crop.save()
+
+	#encrypt the image
+	password = "theImagePassword$"
+	hasher = SHA256.new(password.encode("latin-1"))
+	digest = hasher.digest()
+	filename = crop_path
+	encrypt(digest, filename)
 
 	return render(request, 'collection/survey.html')
 

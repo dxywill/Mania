@@ -1,0 +1,242 @@
+body {
+    background-color: #ebf6ee;
+    font-size: 16px;
+}
+
+.row {
+    margin-right: 0;
+    margin-left:0;
+}
+
+.navbar-default {
+    background-color: #fff;
+    border-color: #fff;
+}
+.abstract {
+	font-style: italic;
+    font-size: 16px;
+    margin-top: 60px;
+}
+
+.gap {
+	margin-top: 30px;
+}
+
+.image-crop {
+	max-height: 600px;
+	max-width: 400px;
+}
+
+#eyeImage {
+	max-height: 600px;
+	max-width: 400px;
+}
+
+.image-holder {
+	margin-left: -30px;
+}
+
+.footer-wrap {
+	margin-top: 120px;
+}
+
+.survey label {
+	font-weight: normal;
+    margin-left: 20px;
+    margin-bottom: 35px;
+    margin-top: 35px;
+}
+.textarea .text-label {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.survey-title {
+
+	margin-bottom: 60px;
+}
+
+.survey hr {
+	border-top: 1px solid #d7d7d7;
+}
+
+.survey .btn {
+	margin-top: 60px;
+}
+
+.survey h4 {
+    font-style:italic;
+    font-weight: normal;
+    margin-top: 50px;
+}
+.modal-dialog { 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+} 
+.upload {
+    margin-left: 10px;
+}
+
+textarea {
+   resize: none;
+   vertical-align: top;
+}
+
+.modal-content { 
+    /*overflow-y: scroll; */ 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+} 
+
+.modal-body { 
+    overflow-y: scroll; 
+    position: absolute; 
+    top: 65px; 
+    bottom: 65px; 
+    width: 100%; 
+} 
+
+.modal-header .close {
+    margin-right: 15px;
+} 
+
+.modal-footer {
+    position: absolute; 
+    width: 100%; 
+    bottom: 0; 
+}
+
+#survey-box {
+    display: none;
+}
+
+.container-fluid.landing-top {
+    background-image: url("../img/landing_top.jpg");
+    background-size: 100% 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.landing-top .arrow {
+    background-image: url("../img/landing_arrow.png");
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 59px;
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+.landing-middle .faces {
+    background-image: url("../img/landing_faces.png");
+    height: 467px;
+    /* Center and scale the image nicely */
+    background-size: 100% 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.landing-middle h2 {
+    margin-bottom: 30px;
+}
+
+.container-fluid.landing-bottom {
+    background-image: url("../img/landing_bottom.png");
+    background-size: 100% 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.landing-bottom h2 {
+    margin-bottom: 30px;
+}
+
+.font_4 {font: normal normal normal 46px/1.4em Arial, Helvetica, sans-serif;color:#2F2E2E;} 
+
+.landing-bottom .start {
+    margin-bottom: 30px;
+}
+
+.btn-start {
+    background-color: #494a4b;
+    border-color: #494a4b;
+}
+
+.start a {
+    color: #fff;
+}
+
+.landing-school {
+    font-weight: 200;
+    font-size: 28px;
+    margin-top: 10px;
+}
+.form-box {
+    display: inline-block;
+}
+.login-box {
+    width: 310px;
+}
+
+.login-left {
+    width: 200px;
+    float: left;
+    margin-right: 20px;
+}
+
+.login-right {
+    width: 87px;
+} 
+.login-control .form-signin {
+    margin-left: 0;
+}
+
+/* start return to top*/
+
+#return-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}
+/* end return to top*/
