@@ -140,7 +140,7 @@ SITE_ID = 2
 
 # For image upload
 
-MEDIA_ROOT = 'public/media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'public/media/')
 MEDIA_URL = '/media/'
 
 
