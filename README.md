@@ -1,13 +1,20 @@
 # Mania, A django based app used to collect eye images. 
 
 
-## How to run the app
+## How to run the app in your local environemnt 
 
 1. Create a python virutal environement using conda or virtualenv
-2. <code>pip install django-debug-toolbar </code>(a handful debug tool for django)
-3. <code>pip install django-registration-redux</code> (used for authentication, the reason why it requires login is because it is easier for
+2. Activate virtual environment using:
+   * source yourvirtualenvfolder/bin/activate  (using virtualenv)
+   * source activate yourvirtualenvname (using anaconda) 
+3. <code>pip install django==1.10.5 (the latest version (1.11.0 or later ) may cause some issues) </code>
+4. <code>pip install django-debug-toolbar </code>(a handful debug tool for django)
+5. <code>pip install django-registration-redux</code> (used for authentication, the reason why it requires login is because it is easier for
 the same user to upload multiple photoes, but it should be easy to change)
-4. <code>python manager.py runserver </code> , If you have to create DB first, run the following:  <br />
+6. <code>pip install pillow (for image processing) </code>
+7. <code>pip install pycryptodome (for image encryption) </code>
+8. <code>pip install mysqlclient (for mysql db access) </code>
+9. <code>python manager.py runserver </code> , If you have to create DB first, run the following:  <br />
    <code>python manage.py makemigrations </code>  <br />
    <code>python manage.py migrate </code>
 
