@@ -16,7 +16,7 @@
             <form action="{% url "survey" %}" method="post" enctype="multipart/form-data"> 
                 {% csrf_token %}
 
-                <input type="file" name="file0" id="file0" multiple="multiple" /><br>
+                <input type="file" name="file0" id="file0" multiple="multiple" required /><br>
 
                 <input type="hidden" id="x_value" name="x_offset" value="value">
                 <input type="hidden" id="y_value" name="y_offset" value="value">
