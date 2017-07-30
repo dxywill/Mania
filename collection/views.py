@@ -10,6 +10,9 @@ import time
 import os, random
 from Crypto.Cipher import AES
 from Crypto.Hash import SHA256
+
+import boto3
+
 # Create your views here.
 
 def landing(request):
@@ -139,6 +142,18 @@ def survey(request):
 	digest = hasher.digest()
 	filename = crop_path
 	encrypt(digest, filename)
+
+	#upload to S3
+	s3 = boto3.client(
+    	's3',
+    	# Hard coded strings as credentials, not recommended. Change it when deploy.
+    	aws_access_key_id='AKIAI3SCUO2NFTG4QGMQ',
+    	aws_secret_access_key='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'
+	)
+
+	filename = crop_path
+	bucket_name = 'smu-mania-study-images'
+	s3.upload_file(filename, bucket_name, 'images/{}'.format(request.user.username + '_' + ts + '_crop.png'))
 
 	return render(request, 'collection/survey.html')
 
