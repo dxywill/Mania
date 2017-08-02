@@ -144,9 +144,16 @@ def survey(request):
 	encrypt(digest, filename)
 
 	#upload to S3
-	s3 = boto3.client(
-    	's3'
-	)
+	if 'AWS_ACCESS_KEY_ID' in os.environ:	
+		s3 = boto3.client(
+	    	's3',
+	    	aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+	    	aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY']
+		)
+	else:
+		s3 = boto3.client(
+	    	's3'
+		)
 
 	filename = crop_path
 	bucket_name = 'smu-mania-study-images'
