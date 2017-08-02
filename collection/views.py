@@ -145,10 +145,7 @@ def survey(request):
 
 	#upload to S3
 	s3 = boto3.client(
-    	's3',
-    	# Hard coded strings as credentials, not recommended. Change it when deploy.
-    	aws_access_key_id='AKIAI3SCUO2NFTG4QGMQ',
-    	aws_secret_access_key='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'
+    	's3'
 	)
 
 	filename = crop_path
