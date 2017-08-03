@@ -15,20 +15,24 @@
 		<div class="col-md-2">
 		</div>
 		<div class="col-md-8">
-			<h2 align="center" class="survey-title" > EXIT SURVEY</h2>
+			<h2 align="center" class="survey-title" > Uploaded Image Survey</h2>
 			<form  name="exitSurvey" method="post" action="{% url "complete" %}">
 				{% csrf_token %}
 
 
 				<h4> What is your state when you took this photo? </h4>
 				<label class="radio">
-				  <input type="radio" name="stateOptions" value="0" required> I was depressed 
+				  <input type="radio" name="stateOptions" value="0" required> I was stable
 				</label>
 				<label class="radio">
-				  <input type="radio" name="stateOptions" value="1"> I was manic 
+				  <input type="radio" name="stateOptions" value="1"> I was depressed
 				</label>
 				<label class="radio">
-				  <input type="radio" name="stateOptions" value="2"> I was stable
+				  <input type="radio" name="stateOptions" value="2"> I was manic
+				</label>
+
+				<label class="survey-msg">
+					When you check the mania option, you will be asked a set of questions to give us more information regarding the type of mania you were experiencing. There is no questionnaire for the depressed or stable photos. 
 				</label>
 
 				 <div id="survey-box">
@@ -149,7 +153,7 @@
     var rad = document.exitSurvey.stateOptions;
     for(var i = 0; i < rad.length; i++) {
         rad[i].onclick = function() {
-            if (this.value == "1") {
+            if (this.value == "2") {
             	document.getElementById("survey-box").style.display = "inherit"; 
             } else {
             	document.getElementById("survey-box").style.display = "none"; 
