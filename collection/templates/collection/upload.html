@@ -16,7 +16,11 @@
             <form action="{% url "survey" %}" method="post" enctype="multipart/form-data"> 
                 {% csrf_token %}
 
-                <input type="file" name="file0" id="file0" multiple="multiple" required /><br>
+                <input type="file" name="file0" id="file0" multiple="multiple" required  onchange="pressed()"/>
+                <div class="alert alert-success" id="upload_msg" style="visibility:hidden;">
+                  <strong>Success!</strong> Please adjust the crop box and make it fit the eye
+                </div>
+                <br>
 
                 <input type="hidden" id="x_value" name="x_offset" value="value">
                 <input type="hidden" id="y_value" name="y_offset" value="value">
@@ -39,6 +43,19 @@
 </div>
 
 <script>    
+
+window.pressed = function(){
+    var a = document.getElementById('file0');
+    var msg = document.getElementById('upload_msg');
+    if(a.value == "")
+    {
+        msg.style.visibility = "hidden";
+    }
+    else
+    {
+        msg.style.visibility = "visible";
+    }
+};
 
 window.addEventListener('DOMContentLoaded', function () {
         var image = document.querySelector('#eyeImage');

@@ -211,6 +211,11 @@ textarea {
     margin-left: 0;
 }
 
+input[type=file]{
+    width:90px;
+    color:transparent;
+}
+
 /* start return to top*/
 
 #return-to-top {
