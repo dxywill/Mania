@@ -27,7 +27,7 @@
                 <input type="hidden" id="width_value" name="width" value="value">
                 <input type="hidden" id="height_value" name="height" value="value">
 
-                <input class="btn btn-lg btn-primary" type="submit" value = "Crop & Upload">
+                <input id="upload" class="btn btn-lg btn-primary" type="submit" value = "Crop & Upload">
             </form>
         </div> 
     </div>
@@ -91,6 +91,11 @@ $("#file0").change(function(){
         console.log("end");
     }
 }) ;
+
+$( "#upload" ).click(function() {
+    var a = document.getElementById('file0');
+    a.style.visibility = "hidden";
+});
 
 function getObjectURL(file) {
     var url = null ; 
