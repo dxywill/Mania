@@ -3,10 +3,11 @@ from django.http import HttpResponse
 from collection.models import EyeImage, Survey, Profile
 from collection.forms import ImageUploadForm
 from django.conf import settings
-from PIL import Image
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 import time
-
+from PIL import Image
 import os, random
 from Crypto.Cipher import AES
 from Crypto.Hash import SHA256
@@ -32,9 +33,11 @@ def index(request):
 			
 	return render(request, 'collection/home.html')
 
+@login_required
 def upload(request):
 	return render(request, 'collection/upload.html')
 
+@login_required
 def complete(request):
 	#Get survey data
 	if request.method == 'POST':
@@ -67,7 +70,7 @@ def complete(request):
 		survey.substances = substances
 		survey.flash = flash
 		survey.save() 
-
+	logout(request)
 	return render(request, 'collection/complete.html')
 
 
@@ -99,6 +102,7 @@ def encrypt(key, filename):
                    chunk += b' '*(16 - len(chunk)%16)
                 outf.write(encryptor.encrypt(chunk))
 
+@login_required
 def survey(request):
 	x = float(request.POST['x_offset'])
 	y = float(request.POST['y_offset'])
@@ -161,6 +165,7 @@ def survey(request):
 
 	return render(request, 'collection/survey.html')
 
+@login_required
 def profile(request):
 	#Get profile data
 	if request.method == 'POST':
