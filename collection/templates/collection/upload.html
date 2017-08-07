@@ -23,7 +23,7 @@
         <div class="col-md-7 upload">
             <h3>Please select the file:</h3>
 
-            <form action="{% url "survey" %}" method="post" enctype="multipart/form-data"> 
+            <form  action="{% url "survey" %}" method="post" enctype="multipart/form-data"> 
                 {% csrf_token %}
 
                 <input type="file" name="file0" id="file0" multiple="multiple" required  onchange="pressed()"/>
@@ -49,6 +49,12 @@
         </div>
         <div class="col-md-2">
         </div>
+    </div>
+</div>
+ <div id="WaitDialog"   class="modal fade" style="text-align: center">
+    <!-- <img  src="{% static "img/page-loader.gif" %}"  /> -->
+    <div style="margin-top: 10px; color: white">
+        <b>Please wait...</b>
     </div>
 </div>
 
@@ -104,7 +110,12 @@ $("#file0").change(function(){
 
 $( "#upload" ).click(function() {
     var a = document.getElementById('file0');
-    a.style.visibility = "hidden";
+    if(a.value == "") {
+
+    }
+    else {
+        $("#WaitDialog").modal();
+    }
 });
 
 function getObjectURL(file) {

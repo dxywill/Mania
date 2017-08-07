@@ -212,7 +212,6 @@ textarea {
 }
 
 input[type=file]{
-    width:90px;
     color:transparent;
 }
 
@@ -226,6 +225,7 @@ input[type=file]{
     font-style: italic;
 
 }
+
 /* start return to top*/
 
 #return-to-top {
