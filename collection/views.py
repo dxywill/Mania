@@ -41,40 +41,39 @@ def upload(request):
 def complete(request):
     #Get survey data
     if request.method == 'POST':
-        mentalOptions = request.POST.getlist('mentalOptions')
-        mental = 0
-        for m in mentalOptions:
-            mental += int(m)
-        medicationOptions = request.POST.getlist('medicationOptions')
-        medication = 0
-        for m in medicationOptions:
-            medication += int(m)
-        medicationOther = request.POST.get('medicationOther')
-        substancesOptions = request.POST.getlist('substancesOptions')
-        substances = 0
-        for s in substancesOptions:
-            substances += int(s)
-
-        flash = -1
-        if request.POST.get('otherOptions0'):
-            flash = int(request.POST.get('otherOptions0'))
-    
-        if request.POST.get('otherOptions'):
-            flash = int(request.POST.get('otherOptions'))
-       
-        survey = Survey()
+      
         imageId =  request.session.get('eye_image')
+        state = int(request.POST.get('stateOptions'))
+        
+        survey = Survey()
         survey.image = EyeImage.objects.get(id=imageId)
-        survey.feelings = mental
-        if request.POST.get('stateOptions'):
-            survey.state = int(request.POST.get('stateOptions'))
+        survey.state = state
+
+        # Not manic
+        if  state < 2:
+            if request.POST.get('otherOptions0'):
+                flash = int(request.POST.get('otherOptions0'))
+            survey.flash = flash
+
+        # Manic
         else:
-            survey.state = -1
-        survey.medications = str(medication) + medicationOther
-        survey.substances = substances
-        survey.flash = flash
+            mentalOptions = request.POST.getlist('mentalOptions')
+            mental = ','.join(mentalOptions)
+            medicationOptions = request.POST.getlist('medicationOptions')
+            medication = ','.join(medicationOptions)
+            medicationOther = request.POST.get('medicationOther')
+            substancesOptions = request.POST.getlist('substancesOptions')
+            substances = ','.join(substancesOptions)
+   
+            if request.POST.get('otherOptions'):
+                flash = int(request.POST.get('otherOptions'))        
+                  
+            survey.feelings = mental
+            survey.medications = medication + ',' + medicationOther
+            survey.substances = substances
+            survey.flash = flash
+        
         survey.save() 
-    #logout(request)
     return render(request, 'collection/complete.html')
 
 
@@ -164,11 +163,11 @@ def survey(request):
     eye_image_crop.save()
 
     #encrypt the image
-    password = "theImagePassword$"
-    hasher = SHA256.new(password.encode("latin-1"))
-    digest = hasher.digest()
-    filename = crop_path
-    encrypt(digest, filename)
+    # password = "theImagePassword$"
+    # hasher = SHA256.new(password.encode("latin-1"))
+    # digest = hasher.digest()
+    # filename = crop_path
+    # encrypt(digest, filename)
 
     #upload to S3
     if 'AWS_ACCESS_KEY_ID' in os.environ:   
@@ -186,6 +185,9 @@ def survey(request):
     bucket_name = 'smu-mania-study-images'
     s3.upload_file(filename, bucket_name, 'images/{}'.format(request.user.username + '_' + ts + '_crop.png'))
 
+    orig_image = settings.MEDIA_ROOT + '/img/' + request.user.username + '_' + ts + '.png'    
+    os.remove(filename)
+    os.remove(orig_image)
     return render(request, 'collection/survey.html')
 
 @login_required

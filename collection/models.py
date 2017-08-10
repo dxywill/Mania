@@ -14,10 +14,10 @@ class EyeImage(models.Model):
 
 class Survey(models.Model):
 	image = models.ForeignKey(EyeImage, on_delete=models.CASCADE)
-	feelings = models.IntegerField()
+	feelings = models.CharField(max_length=200, default='')
 	state = models.IntegerField()
-	medications = models.CharField(max_length=200)
-	substances = models.IntegerField()
+	medications = models.CharField(max_length=200, default='')
+	substances = models.CharField(max_length=200, default='')
 	flash = models.IntegerField()
 
 	def __str__(self):
