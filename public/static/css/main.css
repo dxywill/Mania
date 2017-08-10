@@ -115,6 +115,10 @@ textarea {
     display: none;
 }
 
+#flash-box {
+    display: none;
+}
+
 .container-fluid.landing-top {
     background-image: url("../img/landing_top.jpg");
     background-size: 100% 100%; 

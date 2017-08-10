@@ -32,8 +32,23 @@
 				</label>
 
 				<label class="survey-msg">
-					When you check the mania option, you will be asked a set of questions to give us more information regarding the type of mania you were experiencing. There is no questionnaire for the depressed or stable photos. 
+					When you check the mania option, you will be asked a set of questions to give us more information regarding the type of mania you were experiencing. 
 				</label>
+
+				<div id="flash-box">
+					<h3> Other Information </h3>
+					<hr>
+					<h4> Was a flash used in this photo: </h4>
+					<label class="radio">
+					  <input type="radio" name="otherOptions0" value="1"> Yes
+					</label>
+					<label class="radio">
+					  <input type="radio" name="otherOptions0" value="2"> No
+					</label>
+					<label class="radio">
+					  <input type="radio" name="otherOptions0" value="4"> I don’t know
+					</label>
+				</div>
 
 				 <div id="survey-box">
 						<h3 > Mental State Questionnaire </h3>
@@ -125,20 +140,18 @@
 						<label class="checkbox">
 						  <input type="checkbox" name="substancesOptions" value="48"> Steroids
 						</label>
-
-						<h3> Other Information </h3>
-						<hr>
-						<h4> Was a flash used in this photo: </h4>
-						<label class="radio">
-						  <input type="radio" name="otherOptions" value="1"> Yes
-						</label>
-						<label class="radio">
-						  <input type="radio" name="otherOptions" value="2"> No
-						</label>
-						<label class="radio">
-						  <input type="radio" name="otherOptions" value="4"> I don’t know
-						</label>
-
+							<h3> Other Information </h3>
+							<hr>
+							<h4> Was a flash used in this photo: </h4>
+							<label class="radio">
+							  <input type="radio" name="otherOptions" value="1"> Yes
+							</label>
+							<label class="radio">
+							  <input type="radio" name="otherOptions" value="2"> No
+							</label>
+							<label class="radio">
+							  <input type="radio" name="otherOptions" value="4"> I don’t know
+							</label>
 					</div>
 				<button type="submit" id="create" class="btn btn-lg btn-primary btn-block">Submit </button>
 			</form>
@@ -155,7 +168,9 @@
         rad[i].onclick = function() {
             if (this.value == "2") {
             	document.getElementById("survey-box").style.display = "inherit"; 
+            	document.getElementById("flash-box").style.display = "none"; 
             } else {
+            	document.getElementById("flash-box").style.display = "inherit"; 
             	document.getElementById("survey-box").style.display = "none"; 
             }
         };

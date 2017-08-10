@@ -54,10 +54,14 @@ def complete(request):
         substances = 0
         for s in substancesOptions:
             substances += int(s)
+
+        flash = -1
+        if request.POST.get('otherOptions0'):
+            flash = int(request.POST.get('otherOptions0'))
+    
         if request.POST.get('otherOptions'):
             flash = int(request.POST.get('otherOptions'))
-        else:
-            flash = -1
+       
         survey = Survey()
         imageId =  request.session.get('eye_image')
         survey.image = EyeImage.objects.get(id=imageId)
@@ -70,7 +74,7 @@ def complete(request):
         survey.substances = substances
         survey.flash = flash
         survey.save() 
-    logout(request)
+    #logout(request)
     return render(request, 'collection/complete.html')
 
 
