@@ -3,39 +3,51 @@
 
 {% block content %}
 
-        <form id="username" class="form-signin"  method="post" action=".">
-                {% csrf_token %}
-                	<h3 class="form-signin-heading">PICK A UNIQUE NAME</h3>
-					<div class="form-group" >
-					 <p class="required"> <label for="id_username">Username:</label>
-					     <input class="form-control"  id="id_username" maxlength="30" name="username" type="text"  placeholder="Enter username"/></p>
-					</div>
-					 <div class="form-group">
-<!-- 					    <p class="required"><label for="id_email">E-mail:</label> -->
-					        <input type="hidden" class="form-control" id="id_email" name="email" type="email" placeholder="Enter email" value="dxywill@gmail.com" /></p>
-					 </div>
-					<div class="form-group">
-<!-- 					    <p class="required"><label for="id_password1">Password:</label> -->
-					        <input  type="hidden" class="form-control" id="id_password1" name="password1" placeholder="Enter password" value="maniaPassword123"/></p>
-					</div>
-					<div class="form-group">
-<!-- 					    <p class="required"><label for="id_password2">Password (again):</label> -->
-					 <input type="hidden" class="form-control" id="id_password2" name="password2" placeholder="Enter password again" value="maniaPassword123" /></p>
-					</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">
+		        <form id="username" class="form-signin"  method="post" action=".">
+		                {% csrf_token %}
+		                	<h3 class="form-signin-heading">PICK A UNIQUE NAME</h3>
+							<div class="form-group" >
+							 <p class="required"> <label for="id_username">Username:</label>
+							     <input class="form-control"  id="id_username" maxlength="30" name="username" type="text"  placeholder="Enter username"/></p>
+							</div>
+							 <div class="form-group">
+		<!-- 					    <p class="required"><label for="id_email">E-mail:</label> -->
+							        <input type="hidden" class="form-control" id="id_email" name="email" type="email" placeholder="Enter email" value="dxywill@gmail.com" /></p>
+							 </div>
+							<div class="form-group">
+		<!-- 					    <p class="required"><label for="id_password1">Password:</label> -->
+							        <input  type="hidden" class="form-control" id="id_password1" name="password1" placeholder="Enter password" value="maniaPassword123"/></p>
+							</div>
+							<div class="form-group">
+		<!-- 					    <p class="required"><label for="id_password2">Password (again):</label> -->
+							 <input type="hidden" class="form-control" id="id_password2" name="password2" placeholder="Enter password again" value="maniaPassword123" /></p>
+							</div>
 
-					{% if form.errors %} 
-						<div class="alert alert-danger">
-			                {% for field in form %}
-						         {{ field.errors }}
-			    			{% endfor %}
-			    			{{ form.non_field_errors }} 
-		    			</div>
-	    			{% endif %}
+							{% if form.errors %} 
+								<div class="alert alert-danger">
+					                {% for field in form %}
+								         {{ field.errors }}
+					    			{% endfor %}
+					    			{{ form.non_field_errors }} 
+				    			</div>
+			    			{% endif %}
 
-	    			<button type="submit" id="create" class="btn btn-lg btn-primary btn-block" >Next Step</button>
+			    			<button type="submit" id="create" class="btn btn-lg btn-primary btn-block" >Next Step</button>
 
-        </form>
-       
-        <p align="center" >Already have a username? <a href="{% url 'auth_login' %}">Sign In </a></p>
+		        </form>
+		       
+		        <p align="center" >Already have a username? <a href="{% url 'auth_login' %}">Sign In </a></p>
+
+    		</div>
+
+        <div class="col-md-4">
+		</div>
+     </div>
+ </div>
 
 {% endblock %}

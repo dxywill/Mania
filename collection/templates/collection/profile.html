@@ -3,50 +3,63 @@
 
 {% block content %}
 
-        <form id="userprofile" class="form-signin"  method="post" action="{% url "profile" %}">
-        	 {% csrf_token %}
-       				 <!-- Profile info -->
-       				<h3 class="form-signin-heading">FILL IN BASIC INFO</h3>
-	    			<label for="sel1">Age Range:</label>
-				      <select class="form-control" name="agerange">
-				        <option value="0">18-25</option>
-				        <option value="1">26-30</option>
-				        <option value="2">31-35</option>
-				        <option value="3">36-40</option>
-				        <option value="4">41-45</option>
-				        <option value="5">46-50</option>
-				        <option value="6">51-55</option>
-				        <option value="7">56-60</option>
-				        <option value="8">61-65</option>
-				        <option value="9">over 65</option>
-				      </select>
-					 <br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">
+	        <form id="userprofile" class="form-signin"  method="post" action="{% url "profile" %}">
+	        	 {% csrf_token %}
+	       				 <!-- Profile info -->
+	       				<h3 class="form-signin-heading">FILL IN BASIC INFO</h3>
+		    			<label for="sel1">Age Range:</label>
+					      <select class="form-control" name="agerange">
+					        <option value="0">18-25</option>
+					        <option value="1">26-30</option>
+					        <option value="2">31-35</option>
+					        <option value="3">36-40</option>
+					        <option value="4">41-45</option>
+					        <option value="5">46-50</option>
+					        <option value="6">51-55</option>
+					        <option value="7">56-60</option>
+					        <option value="8">61-65</option>
+					        <option value="9">over 65</option>
+					      </select>
+						 <br>
 
-					 <label for="sel1">Gender:</label>
-				      <select class="form-control" name="gender">
-				        <option value="0" >Male</option>
-				        <option value="1">Female</option>
-				        <option value="2">I perfer not to say</option>
-				      </select>
-					 <br>
+						 <label for="sel1">Gender:</label>
+					      <select class="form-control" name="gender">
+					        <option value="0" >Male</option>
+					        <option value="1">Female</option>
+					        <option value="2">I perfer not to say</option>
+					      </select>
+						 <br>
 
-					 <label for="sel1">Diagnosis:</label>
-				      <select class="form-control" name="diagnosis">
-				        <option value="0">Bipolar one</option>
-				        <option value="1">Bipolar two</option>
-				        <option value="2">Bipolar non specified</option>
-				        <option value="3">Schizoaffective</option>
-				      </select>
-					 <br>
-			<div class="checkbox">
-				    <label>
-				       Please read the <a data-toggle="modal" data-target="#myModal" >consent form</a> before signing-up.
-				    </label>
-				  </div>
-				  <button type="submit" id="create" class="btn btn-lg btn-primary btn-block" disabled="true">Create User Name</button>
+						 <label for="sel1">Diagnosis:</label>
+					      <select class="form-control" name="diagnosis">
+					        <option value="0">Bipolar one</option>
+					        <option value="1">Bipolar two</option>
+					        <option value="2">Bipolar non specified</option>
+					        <option value="3">Schizoaffective</option>
+					      </select>
+						 <br>
+				<div class="checkbox">
+					    <label>
+					       Please read the <a data-toggle="modal" data-target="#myModal" >consent form</a> before signing-up.
+					    </label>
+					  </div>
+					  <button type="submit" id="create" class="btn btn-lg btn-primary btn-block" disabled="true">Create User Name</button>
 
-        </form>
-        <p align="center" >Already have a username? <a href="{% url 'auth_login' %}">Sign In </a></p>
+	        </form>
+	        <p align="center" >Already have a username? <a href="{% url 'auth_login' %}">Sign In </a></p>
+
+    	</div>
+
+    	<div class="col-md-4">
+		</div>
+
+    </div>
+</div>
         <!-- Modal -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		    <div class="modal-dialog">
