@@ -143,7 +143,7 @@ textarea {
 }
 
 .login-username {
-
+    margin-top: 10px;
     text-align: left;
 }
 .container-fluid.landing-top {
@@ -240,6 +240,10 @@ textarea {
 } 
 .login-control .form-signin {
     margin-left: 0;
+}
+
+.login-control .form-group {
+    margin-bottom: 0;
 }
 
 input[type=file]{
