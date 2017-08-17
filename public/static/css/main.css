@@ -130,6 +130,22 @@ textarea {
     display: none;
 }
 
+.username-hint {
+    font-style: italic;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.username-alert {
+    font-style: italic;
+}
+.username-bottom {
+    margin-top: 30px;
+}
+
+.login-username {
+
+    text-align: left;
+}
 .container-fluid.landing-top {
     background-image: url("../img/landing_top.jpg");
     background-size: 100% 100%; 

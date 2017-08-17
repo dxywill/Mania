@@ -10,7 +10,10 @@
 		<div class="col-md-4">
 		        <form id="username" class="form-signin"  method="post" action=".">
 		                {% csrf_token %}
-		                	<h3 class="form-signin-heading">PICK A UNIQUE NAME</h3>
+		                	<h3 class="form-signin-heading">Choose a unique username</h3>
+		                	<div class="username-hint">
+		                		 <p > Please DO NOT use the back button on browser. To return to the Homepage, click the link below. </p>
+		                	</div>
 							<div class="form-group" >
 							 <p class="required"> <label for="id_username">Username:</label>
 							     <input class="form-control"  id="id_username" maxlength="30" name="username" type="text"  placeholder="Enter username"/></p>
@@ -37,11 +40,15 @@
 				    			</div>
 			    			{% endif %}
 
-			    			<button type="submit" id="create" class="btn btn-lg btn-primary btn-block" >Next Step</button>
+			    			<button type="submit" id="create" class="btn btn-primary btn-block" >Next Step</button>
 
 		        </form>
 		       
-		        <p align="center" >Already have a username? <a href="{% url 'auth_login' %}">Sign In </a></p>
+		       <div class="username-bottom">
+			        <p align="center" >Already have a username? <a href="{% url 'auth_login' %}">Sign In </a></p>
+			        <hr>
+			        <p class="username-alert"> Please choose a unique username so that you can upload images to our system multiple times. Please DO NOT use your real name as your username. The username you choose should not reveal anything about you, but should be something you can remember. It could be as simple as a number of your favorite word. If you forget your username, there is no way to look it up, simply create a new one. </p> 
+		    	</div>
 
     		</div>
 
