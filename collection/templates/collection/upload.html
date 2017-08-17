@@ -26,7 +26,7 @@
             <form  action="{% url "survey" %}" method="post" enctype="multipart/form-data"> 
                 {% csrf_token %}
 
-                <input type="file" name="file0" id="file0" multiple="multiple" required  onchange="pressed()"/>
+                <input type="file" name="file0" id="file0" multiple="multiple" required  onchange="pressed()" accept="image/*"/>
                 <div class="alert alert-success" id="upload_msg" style="visibility:hidden;">
                   <strong>Success!</strong> Please adjust the crop box so that it captures both eyes.
                 </div>
