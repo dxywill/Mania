@@ -200,7 +200,7 @@ def survey(request):
     s3.upload_file(filename, bucket_name, 'images/{}'.format(request.user.username + '_' + ts + '_crop.png'))
 
     orig_image = settings.MEDIA_ROOT + '/img/' + request.user.username + '_' + ts + '.png'    
-    # os.remove(filename)
+    os.remove(filename)
     os.remove(orig_image)
     return render(request, 'collection/survey.html')
 
