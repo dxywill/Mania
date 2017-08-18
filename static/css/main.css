@@ -135,6 +135,13 @@ textarea {
     margin-top: 30px;
     margin-bottom: 30px;
 }
+.complete-button {
+    margin-top: 10px;
+    width: 250px;
+}
+.complete-facebook {
+    margin-top: 10px;
+}
 .username-alert {
     font-style: italic;
 }
