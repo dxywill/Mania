@@ -138,7 +138,6 @@ def survey(request):
     eye_image.image_id = 2
     eye_image.image_name = request.user.username + '_' + ts + '.png'
     eye_image.save()
-    request.session['eye_image'] = eye_image.id
 
     #Crop image
     im = Image.open(request.FILES['file0'])
@@ -175,6 +174,8 @@ def survey(request):
     eye_image_crop.image_id = 3
     eye_image_crop.image_name = request.user.username + '_' + ts + '_crop.png'
     eye_image_crop.save()
+
+    request.session['eye_image'] = eye_image_crop.id
 
     #encrypt the image
     # password = "theImagePassword$"
