@@ -169,4 +169,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'public/media/')
 MEDIA_URL = '/media/'
 
 
-ALLOWED_HOSTS = ['192.168.0.2', '127.0.0.1', '10.8.139.71', 'maniahero-dev.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['192.168.0.2', '127.0.0.1', '10.8.139.71', 'maniahero-dev.us-west-2.elasticbeanstalk.com', '10.8.98.85']
