@@ -24,6 +24,12 @@ SECRET_KEY = 'q4*&@+c7lid1p58(j#9at(+i6a3+k43h1n(t-^_jq_)*^29@@8'
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
+
+if 'RDS_DB_NAME' in os.environ:
+    DEBUG = False
+else:
+    DEBUG = True
+
 ALLOWED_HOSTS = []
 
 
