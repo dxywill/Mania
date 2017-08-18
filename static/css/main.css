@@ -194,7 +194,9 @@ textarea {
     width: 198px;
     margin-top: 20px;
 }
-
+.survey h4.check-med {
+    margin-top: 80px;
+}
 .main-logo {
     margin-left: 15px;
 }
