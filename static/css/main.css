@@ -131,7 +131,7 @@ textarea {
 }
 
 .username-hint {
-    font-style: italic;
+/*    font-style: italic;*/
     margin-top: 30px;
     margin-bottom: 30px;
 }

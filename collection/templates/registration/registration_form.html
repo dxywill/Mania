@@ -5,11 +5,12 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-3">
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-6">
 		        <form id="username" class="form-signin"  method="post" action=".">
 		                {% csrf_token %}
+
 		                	<h3 class="form-signin-heading">Choose a unique username</h3>
 		                	<div class="username-hint">
 		                		 <p >Please DO NOT use the back button on your browser. To return to the Homepage, click the link at the bottom of the page.</p>
@@ -47,14 +48,23 @@
 		       <div class="username-bottom">
 			        <p align="center" >Already have a username? <a href="{% url 'auth_login' %}">Sign In </a></p>
 			        <hr>
-			        <p class="username-alert">When you sign in to the website and create a username, you are simply giving us a way to anonymously label your pictures using the username you choose. We ask that you choose a unique username so that you can upload images to our system multiple times. Please do NOT use your real name or any identifiable information as your username. The username you choose should not reveal anything about you, but should be something you can remember. It could be as simple as a number or your favorite word. If you forget your username, there is no way to look it up. This is because signing in to this website does not save any of your personal information. Please write down your username as soon as it is created. If you forget your name and want to submit more photos, it is no problem. Simply create a new user name. </p> 
+			       
 		    	</div>
 
     		</div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
 		</div>
      </div>
+	<div class="row">
+		<div >
+			<div class="">
+
+		         <h3 > How should I choose a username?</h3>
+				 <p class="">When you sign in to the website and create a username, you are simply giving us a way to anonymously label your pictures using the username you choose. We ask that you choose a unique username so that you can upload images to our system multiple times. Please do NOT use your real name or any identifiable information as your username. The username you choose should not reveal anything about you, but should be something you can remember. It could be as simple as a number or your favorite word. If you forget your username, there is no way to look it up. This is because signing in to this website does not save any of your personal information. Please write down your username as soon as it is created. If you forget your name and want to submit more photos, it is no problem. Simply create a new user name. </p> 
+			</div>
+		</div>
+	</div> 
  </div>
 
 {% endblock %}

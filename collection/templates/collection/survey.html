@@ -20,7 +20,7 @@
 				{% csrf_token %}
 
 
-				<h4> What is your state when you took this photo? </h4>
+				<h3> What is your state when you took this photo? </h3>
 				<label class="radio">
 				  <input  type="radio" name="stateOptions" value="0" required> I was stable
 				</label>
@@ -31,13 +31,14 @@
 				  <input type="radio" name="stateOptions" value="2"> I was manic
 				</label>
 
-				<hr>
+
 				<label class="survey-msg">
 					When you check the mania option, you will be asked a set of questions to give us more information regarding the type of mania you were experiencing. 
 				</label>
+				<hr>
 
 				<div id="flash-box">
-					<h4> Was a flash used in this photo? </h4>
+					<h3> Was a flash used in this photo? </h3>
 					<label class="radio">
 					  <input type="radio" id="first-other" name="otherOptions0" value="0" required> Yes
 					</label>
@@ -50,9 +51,7 @@
 				</div>
 
 				 <div id="survey-box">
-						<h3 > Mental State Questionnaire </h3>
-						<hr>
-						<h4> Please check the boxes that represent how you felt during the time of the picture. </h4>
+						<h3> Please check the boxes that represent how you felt during the time of the picture. </h3>
 						<label class="checkbox">
 						  <input type="checkbox" name="mentalOptions" value="0"> I felt upbeat and had a lot of fun. 
 						</label>
@@ -98,7 +97,7 @@
 						<hr>
 
 
-						<h4 class="check-med"> Check the medications you were taking at the time of the picture. </h4>
+						<h3 class="check-med"> Check the medications you were taking at the time of the picture. </h3>
 
 						<label class="checkbox">
 						  <input type="checkbox" name="medicationOptions" value="0"> SSRI and SNRI Antidepressants.
@@ -121,7 +120,7 @@
 						</div>
 
 						<hr>
-						<h4> <strong>Optional, but helpful to the study: </strong> Check the substances you were using at the time of the picture. Please know this information is completely anonymous. </h4>
+						<h3> <strong>Optional, but helpful to the study: </strong> Check the substances you were using at the time of the picture. Please know this information is completely anonymous. </h3>
 
 						<label class="checkbox">
 						  <input type="checkbox" name="substancesOptions" value="0"> Marijuana
@@ -145,7 +144,7 @@
 						  <input type="checkbox" name="substancesOptions" value="6"> Steroids
 						</label>
 						<hr>
-							<h4> Was a flash used in this photo? </h4>
+							<h3> Was a flash used in this photo? </h3>
 							<label class="radio">
 							  <input type="radio" id="second-other" name="otherOptions" value="0"> Yes
 							</label>
