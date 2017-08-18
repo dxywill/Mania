@@ -6,7 +6,10 @@ from django.conf import settings
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+#from django.contrib.sessions.backends.db import SessionStore
+from django.contrib.sessions.models import Session
 import time
+from datetime import datetime
 from PIL import Image, ExifTags
 import os, random
 from Crypto.Cipher import AES
@@ -32,6 +35,17 @@ def index(request):
             return render(request, 'collection/upload.html', context_data)
             
     return render(request, 'collection/home.html')
+
+def session(request):
+    session_id = request.session.session_key
+    s = Session.objects.get(pk=session_id)
+    expired = 0
+    expired_time = int(time.mktime(s.expire_date.timetuple()))
+    current_time = int(time.mktime(datetime.utcnow().timetuple()))
+    if expired_time < current_time:
+        expired = 1
+
+    return HttpResponse(expired)
 
 @login_required
 def upload(request):

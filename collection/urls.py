@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^faq/$', views.faq, name='faq'),
     url(r'^consent/$', views.consent, name='consent'),
     url(r'^survey/$', views.survey, name='survey'),
-    url(r'^profile/$', views.profile, name='profile')
+    url(r'^profile/$', views.profile, name='profile'),
+    url(r'^session/$', views.session, name='session')
 ]

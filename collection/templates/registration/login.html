@@ -240,6 +240,15 @@
 <a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
 
 <script>
+$(document).ready( function () {
+  	url_string = location.href;
+  	var url = new URL(url_string);
+	var c = url.searchParams.get("expired");
+	if(c == "1") {
+		alert("Your session has expired, please log in to continue!");
+	}
+});
+
 $(window).scroll(function() {
     if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
         $('#return-to-top').fadeIn(200);    // Fade in the arrow
