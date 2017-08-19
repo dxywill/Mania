@@ -5,3 +5,5 @@
 !.elasticbeanstalk/*.global.yml
 *.pyc
 grab_data.py
+s3_images/
+bipolar_data.csv
