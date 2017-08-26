@@ -26,7 +26,7 @@ SECRET_KEY = 'q4*&@+c7lid1p58(j#9at(+i6a3+k43h1n(t-^_jq_)*^29@@8'
 
 
 if 'RDS_DB_NAME' in os.environ:
-    DEBUG = True
+    DEBUG = False
 else:
     DEBUG = True
 
