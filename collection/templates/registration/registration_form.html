@@ -41,7 +41,14 @@
 				    			</div>
 			    			{% endif %}
 
-			    			<button type="submit" id="create" class="btn btn-primary btn-block" >Next Step</button>
+			    			<div class="checkbox">
+							    <label>
+							       Please read the <a data-toggle="modal" data-target="#myModal" >consent form</a> before signing-up.
+							    </label>
+					 		</div>
+
+
+			    			<button type="submit" id="create" class="btn btn-primary btn-block"  disabled="true" >Next Step</button>
 
 		        </form>
 		       
@@ -66,5 +73,40 @@
 		</div>
 	</div> 
  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title" id="myModalLabel" align="center"> Consent Form </h3>
+            </div>
+            <div class="modal-body"> {% include 'collection/form_content.html' %} </div>
+            <div class="modal-footer">
+            	<input id="consent-box" type="checkbox"> Accept 
+            	<!-- <input id="consent-box-disagree" type="checkbox"> I disagree  -->
+                <button id="dismiss-modal" type="button" class="btn btn-default" data-dismiss="modal" style="display: none;">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<script> 	
+	$("#consent-box").click(function() {
+
+		if ($(this).is(':checked')) {
+			document.getElementById("dismiss-modal").click();
+			$("#create").removeAttr("disabled");  
+		}
+		else {
+			$("#create").attr("disabled","true");  
+		}
+	});
+
+	$("#consent-box-disagree").click(function() {
+		document.getElementById("dismiss-modal").click();
+	});
+</script>
 
 {% endblock %}
