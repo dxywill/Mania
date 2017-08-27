@@ -54,18 +54,3 @@
 		</div>
   	</div>
 </div>
-<script>
-setInterval(function()
-{ 
-    $.ajax({
-      type:"get",
-      url:"{% url 'session' %}",
-      success:function(data)
-      {
-      	if(data == "1") {
-      		window.location.replace("/accounts/login/?expired=1");
-      	}
-      }
-    });
-}, 30000);//time in milliseconds 
-</script>
