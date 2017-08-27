@@ -7,3 +7,5 @@
 grab_data.py
 s3_images/
 bipolar_data.csv
+
+collection/__pycache__/

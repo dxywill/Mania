@@ -22,13 +22,13 @@
 
 				<h3> What is your state when you took this photo? </h3>
 				<label class="radio">
-				  <input  type="radio" name="stateOptions" value="0" required> I was stable
+				  <input  type="radio" name="stateOptions" value="0" required> I was manic
 				</label>
 				<label class="radio">
 				  <input type="radio" name="stateOptions" value="1"> I was depressed
 				</label>
 				<label class="radio">
-				  <input type="radio" name="stateOptions" value="2"> I was manic
+				  <input type="radio" name="stateOptions" value="2"> I was stable 
 				</label>
 
 
@@ -168,7 +168,7 @@
     var rad = document.exitSurvey.stateOptions;
     for(var i = 0; i < rad.length; i++) {
         rad[i].onclick = function() {
-            if (this.value == "2") {
+            if (this.value == "0") {
             	document.getElementById("survey-box").style.display = "inherit"; 
             	document.getElementById("flash-box").style.display = "none"; 
             	document.getElementById("first-other").removeAttribute("required");

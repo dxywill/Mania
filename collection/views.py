@@ -64,7 +64,7 @@ def complete(request):
         survey.state = state
 
         # Not manic
-        if  state < 2:
+        if  state > 0:
             if request.POST.get('otherOptions0'):
                 flash = int(request.POST.get('otherOptions0'))
             survey.flash = flash

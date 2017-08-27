@@ -11,7 +11,10 @@
 	        <form id="userprofile" class="form-signin"  method="post" action="{% url "profile" %}">
 	        	 {% csrf_token %}
 	       				 <!-- Profile info -->
-	       				<h3 class="form-signin-heading">FILL IN BASIC INFO</h3>
+	       				<h3 class="form-signin-heading">Please Tell us Some Basic Information</h3>
+	       				<div class="username-hint">
+		                		 <p >Please DO NOT use the back button on your browser. To return to the Homepage, click the link at the bottom of the page.</p>
+		                </div>
 		    			<label for="sel1">Age Range:</label>
 					      <select class="form-control" name="agerange">
 					        <option value="0">18-25</option>
@@ -44,11 +47,12 @@
 					      </select>
 						 <br>
 				
-					  <button type="submit"  class="btn btn-primary btn-block">Create User Name</button>
+					  <button type="submit"  class="btn btn-primary btn-block">Submit</button>
 
 	        </form>
-	        <p align="center" >Already have a username? <a href="{% url 'auth_login' %}">Sign In </a></p>
-
+	        <div class="username-bottom">
+	        	<p align="center" >Already have a username? <a href="{% url 'auth_login' %}">Sign In </a></p>
+	    	</div>
     	</div>
 
     	<div class="col-md-4">
