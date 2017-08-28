@@ -179,6 +179,19 @@ textarea {
     background-repeat: no-repeat;
 }
 
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .landing-middle .faces {
+    background-image: url("../img/landing_faces.png");
+    height: 210px;
+    /* Center and scale the image nicely */
+    background-size: 92% 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+}
+
+
 .landing-middle h2 {
     margin-bottom: 30px;
 }
