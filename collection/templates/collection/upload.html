@@ -17,29 +17,38 @@
         <div class="col-md-4 image-crop">
              <img id="eyeImage" src="{% static "img/pp.jpg" %}" />
         </div> 
-        <div class="col-md-1">
-            
+        <div class="col-md-4">
+            <div class="upload"> 
+                <h3>Please select the file:</h3>
+
+                <form  action="{% url "survey" %}" method="post" enctype="multipart/form-data"> 
+                    {% csrf_token %}
+
+                    <input type="file" name="file0" id="file0" required  onchange="pressed()" accept="image/*"/>
+                    <div class="alert alert-success" id="upload_msg" style="visibility:hidden;">
+                      <strong>Success!</strong> Please adjust the crop box so that it captures both eyes.
+                    </div>
+                    <br>
+
+                    <input type="hidden" id="x_value" name="x_offset" value="value">
+                    <input type="hidden" id="y_value" name="y_offset" value="value">
+                    <input type="hidden" id="width_value" name="width" value="value">
+                    <input type="hidden" id="height_value" name="height" value="value">
+
+                    <input id="upload" class="btn btn-lg btn-primary" type="submit" value = "Crop & Upload">
+                </form>
+            </div>
         </div> 
-        <div class="col-md-7 upload">
-            <h3>Please select the file:</h3>
 
-            <form  action="{% url "survey" %}" method="post" enctype="multipart/form-data"> 
-                {% csrf_token %}
-
-                <input type="file" name="file0" id="file0" required  onchange="pressed()" accept="image/*"/>
-                <div class="alert alert-success" id="upload_msg" style="visibility:hidden;">
-                  <strong>Success!</strong> Please adjust the crop box so that it captures both eyes.
-                </div>
-                <br>
-
-                <input type="hidden" id="x_value" name="x_offset" value="value">
-                <input type="hidden" id="y_value" name="y_offset" value="value">
-                <input type="hidden" id="width_value" name="width" value="value">
-                <input type="hidden" id="height_value" name="height" value="value">
-
-                <input id="upload" class="btn btn-lg btn-primary" type="submit" value = "Crop & Upload">
-            </form>
-        </div> 
+        <div class="col-md-4 sample-box">
+            <div >
+                <p>Example:</p> 
+                <p class="sample-info">Once you select an image, you can select the area in the image where your eyes are located.</p>
+            </div>
+            <div class="sample-img-box">
+                <img class="sample-img" src="{% static "img/sample.png" %}" />
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-2">

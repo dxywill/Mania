@@ -87,9 +87,30 @@ body {
     right: 0; 
 } 
 .upload {
-    margin-left: 10px;
+    margin-left: 20px;
+}
+.sample-box {
+    border-style: none none none dashed;
+    border-color: gray;
+    border-width: 2px;
 }
 
+.sample-img-box {
+
+}
+.sample-img {
+    height:315px;
+    display: block;
+    margin: 0 auto;
+}
+
+.sample-info {
+    margin-bottom: 10px;
+    font-style: italic;
+}
+.sample-top {
+    margin-top: 10px;
+}
 textarea {
    resize: none;
    vertical-align: top;
